@@ -19,4 +19,8 @@ class User extends Model implements AuthenticatableContract,
     protected $table = 'tblUsers';
     protected $fillable = ['name', 'email', 'password'];
     protected $hidden = ['password', 'remember_token'];
+
+    public function products(){
+    	return $this->hasMany('App\Product');
+    }
 }
