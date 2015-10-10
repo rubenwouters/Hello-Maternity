@@ -1,0 +1,62 @@
+form {
+	// margin-top: 10px;
+	p {
+		margin-bottom: 7px;
+		margin-top: 20px;
+	}
+
+	input {
+		border: 1px solid black;
+		padding: 10px;
+		width: 50%;
+		font-weight: 600;
+		letter-spacing: .07em;
+	}
+	textarea, input { outline: none; }
+
+	.submit {
+		display: block;
+		margin-top: 40px;
+		background-color: white;
+		width: auto;
+		padding: 15px 25px;
+		color: $cLink;
+		border: 1px solid $cLink;
+
+		&:hover {
+			background-color: $cLink;
+			color: white;
+		}
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	form {
+		input {
+			width: 60%;
+		}
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	form {
+		input {
+			width: 80%;
+		}
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	form {
+		input {
+			width: calc(100% - 22px);
+		}
+	}
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+}

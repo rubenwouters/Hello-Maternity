@@ -18,6 +18,17 @@ footer {
 			display: block;
 			padding-bottom: 30px;
 		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			padding: 0 2px;
+
+			&:hover {
+				background-color: white;
+				color: $cLink;
+			}
+		}
 	}
 	
 	.bg-gradient {
