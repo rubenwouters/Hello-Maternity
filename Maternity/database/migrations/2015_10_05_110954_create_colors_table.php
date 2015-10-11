@@ -7,7 +7,7 @@ class CreateColorsTable extends Migration
 {
     public function up()
     {
-        Schema::create('tblColors', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
         });
@@ -15,6 +15,6 @@ class CreateColorsTable extends Migration
 
     public function down()
     {
-        Schema::drop('tblColors');
+        Schema::drop('colors');
     }
 }

@@ -7,7 +7,7 @@ class CreateColorsProductsTable extends Migration
 {
     public function up()
     {
-        Schema::create('tblColors_tblProducts', function (Blueprint $table) {
+        Schema::create('colors_products', function (Blueprint $table) {
             $table->integer('FK_color');
             $table->integer('FK_product');
         });
@@ -15,6 +15,6 @@ class CreateColorsProductsTable extends Migration
 
     public function down()
     {
-        Schema::drop('tblColors_tblProducts');
+        Schema::drop('colors_products');
     }
 }

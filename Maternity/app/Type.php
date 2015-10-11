@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    protected $table = 'tblTypes';
+    protected $table = 'types';
 
     public function products(){
     	return $this->hasMany('App\Product');

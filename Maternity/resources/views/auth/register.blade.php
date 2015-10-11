@@ -14,18 +14,14 @@
 		        <p>Email</p>
 		        <input type="email" name="email" value="{{ old('email') }}">
 
-
 		        <p>Password</p>
 		        <input type="password" name="password">
-
-
 
 		        <p>Confirm Password</p>
 		        <input type="password" name="password_confirmation">
 	
-
 		        <p>Location</p>
-		        <input type="text" name="name" value="{{ old('name') }}">
+		        <input type="text" name="location" value="{{ old('location') }}">
 				
 				<p>Profile Image</p>
 				{!! Form::file('image') !!}
