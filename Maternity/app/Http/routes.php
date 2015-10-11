@@ -7,6 +7,9 @@ Route::get('/', function () {
 // MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/dashboard', 'DashboardController@index');
+	// ACCOUNT SETTINGS
+	Route::get('/settings', 'DashboardController@settings');
+	Route::post('/settings/{id}', 'DashboardController@postSettings');
 });
 
 // LOGIN

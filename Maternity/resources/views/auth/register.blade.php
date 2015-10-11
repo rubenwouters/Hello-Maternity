@@ -22,9 +22,6 @@
 	
 		        <p>Location</p>
 		        <input type="text" name="location" value="{{ old('location') }}">
-				
-				<p>Profile Image</p>
-				{!! Form::file('image') !!}
 
 		    <div>
 		        <input type="submit" class="submit" value="create account">
