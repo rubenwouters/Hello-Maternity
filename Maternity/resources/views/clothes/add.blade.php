@@ -7,13 +7,13 @@
 		{!! Form::open(array('action' => array('ClothesController@saveClothes'))) !!}
 			
 			<p>Brand</p>
-			<input type="text" value="">
+			<input type="text" name="brand" value="">
 			<div class="horziontal-cozy">
 				<div>
 					<p>Type</p>
 					<select name="type">
 						@foreach($types as $type)
-							<option value="{{$type->name}}">{{$type->name}}</option>
+							<option name="type" value="{{$type->id}}">{{$type->name}}</option>
 						@endforeach
 					</select>
 				</div>
@@ -28,7 +28,9 @@
 					</select>
 				</div>
 			</div>
-
+			<p>Price</p>
+			<input type="text" name="price" value="">
+			
 
 			<p>Colors</p>
 			<p class="info">
