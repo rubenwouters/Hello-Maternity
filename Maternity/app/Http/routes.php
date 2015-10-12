@@ -7,9 +7,14 @@ Route::get('/', function () {
 // MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/dashboard', 'DashboardController@index');
+
 	// ACCOUNT SETTINGS
 	Route::get('/settings', 'DashboardController@settings');
 	Route::post('/settings/{id}', 'DashboardController@postSettings');
+
+	// CLOTHES MANAGER
+	Route::get('/dashboard/clothes/add', 'ClothesController@addClothes');
+	Route::post('/dashboard/clothes/save', 'ClothesController@saveClothes');
 });
 
 // LOGIN
