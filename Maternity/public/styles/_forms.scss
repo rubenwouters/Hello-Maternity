@@ -1,18 +1,43 @@
 form {
 	// margin-top: 10px;
+
 	p {
 		margin-bottom: 7px;
 		margin-top: 20px;
 	}
 
-	input {
+	.info {
+		color: $cTextPrimary;
+		margin-bottom: 20px;
+		margin-top: 0;
+	}
+
+	input, select {
 		border: 1px solid black;
 		padding: 10px;
-		width: 50%;
 		font-weight: 600;
 		letter-spacing: .07em;
+		border-radius: 0;
+		display: block;
+		background-color: transparent;
 	}
-	textarea, input { outline: none; }
+
+	input {
+		width: 50%;
+	}
+	
+	select {
+		min-width: 100px;
+	}
+
+	textarea, input, select { 
+		outline: none; 
+		-webkit-appearance: none;
+	}
+
+	select::-ms-expand {
+	    display: none;
+	}
 
 	.submit {
 		display: block;
@@ -26,6 +51,47 @@ form {
 		&:hover {
 			background-color: $cLink;
 			color: white;
+		}
+	}
+
+	.horziontal-cozy {
+		// background-color: lightgreen;
+		display: block;
+
+		>* {
+			display: inline-block;
+
+			&:not(:first-child) {
+				margin-left: 20px;
+				// background-color: pink;
+			}
+		}
+	}
+
+	.colors {
+		// background-color: pink;
+		overflow: auto;
+
+		input[type=checkbox] {
+			background-color: gray;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			border: 1px solid gray;
+			float: left;
+
+			&:hover {
+				border: 1px solid black !important;
+			}
+
+			&:checked {
+				border: 1px solid black !important;
+			}
+
+			&:nth-of-type(8n+9) {
+				clear: both;
+				display: block;
+			}
 		}
 	}
 }
