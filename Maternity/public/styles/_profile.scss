@@ -13,7 +13,7 @@
 		position: relative;
 		
 		p {
-			line-height: 1.2em;
+			line-height: 1.35em;
 			
 			.name {
 				font-weight: 600;
@@ -23,6 +23,16 @@
 		.rect-link {
 			bottom: 0;
 			position: absolute;
+		}
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	.profile {
+		div {
+			display: block;
+			margin: 20px 0 0 0;
 		}
 	}
 }

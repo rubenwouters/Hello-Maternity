@@ -1,6 +1,7 @@
 .content {
 	width: 980px;
 	margin: 40px auto;
+	overflow: auto;
 
 	h2 {
 		font-size: 2em;
@@ -34,6 +35,11 @@
 				background-color: $cLightPink;
 				color: white;
 			}
+		}
+		&.mega {
+			font-size: 2em;
+			text-transform: uppercase;
+			font-weight: 300;
 		}
 
 		&:hover {
