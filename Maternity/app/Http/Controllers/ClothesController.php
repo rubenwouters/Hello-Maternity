@@ -36,5 +36,39 @@ class ClothesController extends Controller
 
         $product = Product::find($product->id);
         $product->colors()->attach($request->input('colors'));
+
+        return redirect()->action('DashboardController@index');
+    }
+
+    public function updateClothes(Request $request, $id){
+
+    }
+
+    public function edit($id){
+
+        $product = Product::find($id);
+        $colors = Color::all();
+        $types = Type::all();
+        $selectedColors = $product->colors;
+        $selectedType = $product->FK_type;
+
+
+        foreach ($selectedColors as $color) {
+            $arSelectedColors[] = $color->id;
+        }
+        
+        return view('clothes.edit')
+                ->withProduct($product)
+                ->withTypes($types)
+                ->withColors($colors)
+                ->with('selectedColors', $arSelectedColors)
+                ->with('selectedType', $selectedType);
+    }
+
+    public function delete($id){
+
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->action('DashboardController@index');
     }
 }

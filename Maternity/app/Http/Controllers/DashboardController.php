@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Product;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -12,7 +13,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $user = User::find(Auth::user()->id);
+        $products = Product::where('FK_user', Auth::user()->id)->where('paid', 0)->get();
+
+        
+        return view('dashboard.index')->withUser($user)->withProducts($products);
     }
 
     public function settings(){
@@ -31,6 +36,6 @@ class DashboardController extends Controller
 
     	$user->save();
 
-        return redirect()->action('DashboardController@settings');
+        return redirect()->action('DashboardController@index');
     }
 }

@@ -15,6 +15,9 @@ Route::group(['middleware' => 'auth'], function () {
 	// CLOTHES MANAGER
 	Route::get('/dashboard/clothes/add', 'ClothesController@addClothes');
 	Route::post('/dashboard/clothes/save', 'ClothesController@saveClothes');
+	Route::get('/dashboard/clothes/edit/{id}', 'ClothesController@edit');
+	Route::get('/dashboard/clothes/delete/{id}', 'ClothesController@delete');
+	Route::post('/dashboard/clothes/update/{id}', 'ClothesController@updateClothes');
 });
 
 // LOGIN
