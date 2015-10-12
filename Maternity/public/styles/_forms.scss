@@ -10,6 +10,7 @@ form {
 		color: $cTextPrimary;
 		margin-bottom: 20px;
 		margin-top: 0;
+		line-height: 1.3em;
 	}
 
 	input, select {
@@ -77,11 +78,11 @@ form {
 			width: 15px;
 			height: 15px;
 			border-radius: 50%;
-			border: 1px solid gray;
+			border: 1px solid #ddd;
 			float: left;
 
 			&:hover {
-				border: 1px solid black !important;
+				border: 1px solid #bbb !important;
 			}
 
 			&:checked {

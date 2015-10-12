@@ -9,7 +9,46 @@
 		color: $cPrimary;
 		letter-spacing: .15em;
 	}
+
+	a.rect-link {
+		border: 1px solid $cLink;
+		color: $cLink;
+		padding: 7px 13px;
+		font-weight: 500;
+		text-decoration: none;
+		min-width: 100px;
+		text-align: center;
+		display: inline-block;
+		background-color: white;
+
+		&.dark {
+			background-color: $cLink;
+			color: white;
+
+			&:hover {
+				background-color: white;
+				color: $cLink;
+			}
+
+			&.lighter-hover:hover {
+				background-color: $cLightPink;
+				color: white;
+			}
+		}
+
+		&:hover {
+			background-color: $cLink;
+			color: white;
+		}
+	}
+
+	&.hairline {
+		background-color: $cTextPrimary;
+		height: 1px;
+		display: block;
+	}
 }
+
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {

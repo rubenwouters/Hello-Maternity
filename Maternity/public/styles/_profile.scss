@@ -1,0 +1,28 @@
+.profile {
+	overflow: auto;
+
+	img {
+		width: 200px;
+		float: left;
+	}
+
+	div {
+		float: left;
+		margin-left: 20px;
+		height: 200px;
+		position: relative;
+		
+		p {
+			line-height: 1.2em;
+			
+			.name {
+				font-weight: 600;
+			}
+		}
+
+		.rect-link {
+			bottom: 0;
+			position: absolute;
+		}
+	}
+}
