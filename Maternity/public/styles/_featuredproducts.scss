@@ -2,7 +2,7 @@
 	display: block;
 	width: 100%;
 	overflow: auto;
-	margin-bottom: -60px;
+	// margin-bottom: -60px;
 
 	a {
 		text-decoration: none;
@@ -84,13 +84,15 @@
 			margin-top: 10px;
 			float: left;
 
+			:last-child {
+				float: right;
+			}
+
 			:first-child {	
+				float: left;
 				padding-left: 35px;
 				padding-right: 35px;
 				// min-width: 10px;
-			}
-			:last-child {
-				float: right;
 			}
 		}
 	}
