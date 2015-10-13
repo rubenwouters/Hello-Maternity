@@ -3,5 +3,3 @@
 Homestead.yaml
 Homestead.json
 .env
-/config/app.php
-/config/database.php
