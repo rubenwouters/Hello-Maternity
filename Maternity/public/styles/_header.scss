@@ -18,6 +18,12 @@ header {
 
 			> a {
 				border: none;
+
+
+				&:hover {
+					background-color: white;
+					color: $cLink;
+				}
 			}
 
 			.search-fields {
@@ -26,8 +32,8 @@ header {
 		}
 
 		> a {
-			width: 130px;
-			margin-left: 50px;
+			width: 250px;
+			// margin-left: 50px;
 			border: 1px solid $cLink;
 			text-align: center;
 			display: block;
@@ -35,6 +41,12 @@ header {
 			padding: 6px 0;
 			font-weight: 500;
 			text-decoration: none;
+			cursor: pointer;
+
+			&:hover {
+				background-color: $cLink;
+				color: white;
+			}
 		}
 
 		.search-fields {
@@ -51,6 +63,158 @@ header {
 				clear: both;
 				border: 1px solid $cBorderGray;
 				border-bottom: none;
+				
+				// background-color: lightblue;
+				
+				&.clothes {
+					// background-color: lightgreen;
+					overflow: auto;
+
+					input {
+						width: 32px;
+						height: 32px;
+						float: left;
+						margin: 0 0 0 52px;
+						background-position: center;
+						background-repeat: no-repeat;
+						border: none;
+						// background-color: gold;
+
+
+						&:first-child {
+							margin-left: 0;
+							background-image: url('../img/icon_pants.svg');
+
+							&:checked {
+								background-image: url('../img/icon_pants_hover.svg');
+							}
+						}
+
+						&:nth-child(2) {
+							background-image: url('../img/icon_top.svg');
+
+							&:checked {
+								background-image: url('../img/icon_top_hover.svg');
+							}
+						}
+
+						&:nth-child(3) {
+							background-image: url('../img/icon_dress.svg');
+
+							&:checked {
+								background-image: url('../img/icon_dress_hover.svg');
+							}
+						}
+
+						&:hover {
+							cursor: pointer;
+						}
+
+						&:checked {
+							background-color: black;
+							border-radius: 50%;
+						}
+					}
+				}
+
+				&.sizes {
+					overflow: auto;
+
+					input {
+						width: 32px;
+						height: 32px;
+						float: left;
+						margin: 0 0 0 10px;
+						border-radius: 50%;
+						border: none;
+						font-size: 1em;
+						font-weight: 400;
+						padding-top: -10px;
+						cursor: pointer;
+
+						&:before {
+							margin-top: -2px;
+							display: block;
+						}
+						
+						&:first-child {
+							margin-left: 0;
+
+							&:before {
+								content: 'XS';
+								margin-left: -3px;
+							}
+						}
+
+						&:nth-child(2):before {
+							content: 'S';
+							margin-left: 2px;
+							
+						}
+
+						&:nth-child(3):before {
+							content: 'M';
+						}
+
+						&:nth-child(4):before {
+							content: 'L';
+							margin-left: 2px;
+						}
+
+						&:nth-child(5):before {
+							content: 'XL';
+							margin-left: -3px;
+						}
+
+						&:checked {
+							background-color: black;
+							color: white;
+						}
+					}
+				}
+
+				&.price {
+					overflow: auto;
+
+					div {
+						width: 45%;
+						float: left;
+						display: inline-block;
+
+						input {
+							width: 75%;
+							margin-top: 10px;
+						}
+
+						&:first-child {
+							margin-right: 10%;
+						}
+					}
+				}
+
+				&.color {
+					// overflow: auto;
+
+					// .all-colors {
+					// 	float: left;
+					// 	width: 32px;
+					// 	height: 32px;
+					// 	background-image: url('../img/colors_all.png');
+					// 	background-size: 100%;
+					// 	border: none;
+					// 	cursor: pointer;
+					// 	opacity: .5;
+
+					// 	&:checked {
+					// 		opacity: 1;	
+					// 	}
+					// }
+
+					.colors {
+						// float: right;
+						// background-color: red;
+					}
+				}
 
 				&.distribute {
 					text-align: justify;

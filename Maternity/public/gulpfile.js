@@ -43,7 +43,7 @@ gulp.task('compileScripts', function(){
 	console.log('compileScripts');
 
 	var prefix = options.scripts;
-	var scriptsToCompile = [ prefix + '/app.js', prefix + '/bla.js' ];
+	var scriptsToCompile = [ prefix + '/app.js', prefix + '/search.js' ];
 
 	gulp.src(scriptsToCompile)
 	.pipe(maps.init())

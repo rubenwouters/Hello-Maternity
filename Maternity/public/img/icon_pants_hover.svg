@@ -8,7 +8,8 @@
         <g id="Tablet-Portrait" sketch:type="MSArtboardGroup" transform="translate(-59.000000, -91.000000)">
             <g id="Search-Window" sketch:type="MSLayerGroup" transform="translate(41.000000, 58.000000)">
                 <g id="Oval-162-Copy-3-+-Pants" transform="translate(18.000000, 33.000000)" sketch:type="MSShapeGroup">
-                    <path d="M9.67170758,3 L7,3 L7.82345804,19.3969166 L10.2477154,19.3969166 L10.9036905,6.33496609 L11.1785434,6.33496609 L11.8345185,19.3969166 L14.2587759,19.3969166 L15.0822339,3 L12.6950312,3 L9.67170758,3 Z" id="Pants" fill="#000000"></path>
+                    <circle id="Oval-162-Copy-3" fill="#000000" cx="11" cy="11" r="11"></circle>
+                    <path d="M9.67170758,3 L7,3 L7.82345804,19.3969166 L10.2477154,19.3969166 L10.9036905,6.33496609 L11.1785434,6.33496609 L11.8345185,19.3969166 L14.2587759,19.3969166 L15.0822339,3 L12.6950312,3 L9.67170758,3 Z" id="Pants" fill="#FFFFFF"></path>
                 </g>
             </g>
         </g>

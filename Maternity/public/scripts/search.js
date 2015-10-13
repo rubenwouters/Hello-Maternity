@@ -1,7 +1,4 @@
 (function(){
-	console.log('app.js');
-})();
-(function(){
 	console.log('search.js');
 
 	var searchBtn = $('#search');

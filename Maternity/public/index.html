@@ -20,53 +20,54 @@
 		<![endif]-->
 
 		<header>
-			<div class="search-clothes"> <!-- active -->
-				<a href="">search clothes</a>
-				<div class="search-fields">
-					<div class="distribute">
-						<div><img src="img/icon_pants.svg" alt="pants"></div>
-						<div><img src="img/icon_top.svg" alt="tops"></div>
-						<div><img src="img/icon_dress.svg" alt="dresses"></div>
-						<span class="stretch"></span>
+			<div class="search-clothes active"> <!-- active -->
+				<a id="search">search clothes</a>
+				<form class="search-fields">
+					<div class="clothes">
+						<input type="checkbox" id="pants">
+						<input type="checkbox" id="tops">
+						<input type="checkbox" id="skirt">
 					</div>
-					<div class="distribute">
-						<div>XS</div>
-						<div>S</div>
-						<div>M</div>
-						<div>L</div>
-						<div>XL</div>
-						<span class="stretch"></span>
+					<div class="sizes">
+						<input type="checkbox" id="XS">
+						<input type="checkbox" id="S">
+						<input type="checkbox" id="M">
+						<input type="checkbox" id="L">
+						<input type="checkbox" id="XL">
 					</div>
-					<div>
-						PRICE
-					</div>
-					<div class="colors">
-						<a href=""><img src="img/colors_all.png" height="26" width="26"></a>
+					<div class="price">
 						<div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
+							<label>Min.</label>
+							<input type="text" id="min_price" value="0">
+						</div>
+						<div>
+							<label>Max.</label>
+							<input type="text" id="max_price" value="200">
+						</div>
+					</div>
+					<div class="color">
+						<!-- <input type="checkbox" class="all-colors"> -->
+						<div class="colors search">
+							<input type="checkbox" id="" style="background-color: lightgreen;"/>
+							<input type="checkbox" id="" style="background-color: tomato;"/>
+							<input type="checkbox" id="" style="background-color: lightblue;"/>
+							<input type="checkbox" id="" style="background-color: gold;"/>
+							<input type="checkbox" id="" style="background-color: white;"/>
+							<input type="checkbox" id="" style="background-color: black"/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
 						</div>
 					</div>
 					<div class="search"><a href="">search</a></div>
-				</div>
+				</form>
 			</div>
 			<h1><img src="img/logo.svg" alt="Hello Maternity"></h1>
 			<div class="login">
@@ -94,6 +95,7 @@
 						<div class="colors">
 							<div style="background-color: lightblue;"></div>
 							<div style="background-color: lightgreen;"></div>
+							<div style="background-color: white;"></div>
 							<div style="background-color: black;"></div>
 						</div>
 					</a>
@@ -241,6 +243,7 @@
 		</footer>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 	</body>
 </html>

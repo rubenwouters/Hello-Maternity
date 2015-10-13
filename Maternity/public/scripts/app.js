@@ -1,1 +1,3 @@
-console.log('app.js');
+(function(){
+	console.log('app.js');
+})();

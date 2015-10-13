@@ -1,7 +1,12 @@
+a {
+	transition: background-color .2s, color .2s;
+}
+
 .content {
 	width: 980px;
 	margin: 40px auto;
 	overflow: auto;
+
 
 	h2 {
 		font-size: 2em;
