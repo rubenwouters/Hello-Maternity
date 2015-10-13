@@ -43,10 +43,8 @@ class BagController extends Controller
     public function remove($id){
         
         $user = User::find(Auth::user()->id);
-
-        
-
-        $user->bags()->detach($id);
+        $bagNr = $user->bags->last()->id;
+        $user->bags()->detach($bagNr);
 
         return redirect()->action('BagController@index');
     }

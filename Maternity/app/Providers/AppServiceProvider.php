@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\User;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function($view) {
+            if(Auth::check())  {
+                $view->with('bagContent', Auth::user()->bags);
+            }
+            else{
+                $view->with('bagContent', 0);
+            }
+
+        });
+        
     }
 
     /**

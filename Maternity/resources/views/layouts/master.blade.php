@@ -73,7 +73,7 @@
 
 				@if( Auth::check() )
 					<p><span class="bolder">Welcome {{ Auth::user()->name}}</span> <a href="/dashboard">dashboard</a> | <a href="/auth/logout">logout</a></p>
-					<p><a href="/bag"><span class="bolder">bag</span> (3)</a></p>
+					<p><a href="/bag"><span class="bolder">bag</span> ({{ count($bagContent)}}) </a></p>
 				@else
 					<p><a href="/auth/login">login</a> | <a href="/auth/register">register</a></p>
 				@endif
