@@ -4,7 +4,7 @@
 
 	<section class="content login">
 		<h2>edit your piece</h2>
-		{!! Form::open(array('action' => array('ClothesController@updateClothes'))) !!}
+		{!! Form::open(array('action' => array('ClothesController@updateClothes', $product->id))) !!}
 			
 			<p>Brand</p>
 			<input type="text" name="brand" value="{{$product->brand}}">

@@ -24,6 +24,22 @@ class ClothesController extends Controller
     public function saveClothes(Request $request){
 
         $product = new Product;
+        $this->fillData($request, $product);
+
+        return redirect()->action('DashboardController@index');
+    }
+
+    public function updateClothes(Request $request, $id){
+
+        $product = Product::find($id);
+        $product->colors()->detach();
+        $this->fillData($request, $product);
+
+        return redirect()->action('DashboardController@index');
+    }
+
+    public function fillData($request, $product){
+
         $product->FK_type = $request->input('type');
         $product->FK_user = Auth::user()->id;
         $product->brand = $request->input('brand');
@@ -37,11 +53,7 @@ class ClothesController extends Controller
         $product = Product::find($product->id);
         $product->colors()->attach($request->input('colors'));
 
-        return redirect()->action('DashboardController@index');
-    }
-
-    public function updateClothes(Request $request, $id){
-
+        return true;
     }
 
     public function edit($id){
