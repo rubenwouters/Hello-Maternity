@@ -14,7 +14,10 @@ class DashboardController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        $products = Product::where('FK_user', Auth::user()->id)->where('paid', 0)->get();
+        $products = Product::where('FK_user', Auth::user()->id)
+                    ->where('paid', 0)
+                    ->orderBy('id', 'DESC')
+                    ->get();
 
         
         return view('dashboard.index')->withUser($user)->withProducts($products);

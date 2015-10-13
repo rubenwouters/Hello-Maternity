@@ -13,171 +13,22 @@
 	<section class="content featured">
 		<h2>Featured Products</h2>
 		<div class="featured-clothes-wrapper">
-			<article>
-				<a href="">
-					{!! Html::image('img/product_1.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_2.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_3.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
 			
-			<article>
-				<a href="">
-					{!! Html::image('img/product_1.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_2.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_3.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-			<article>
-				<a href="">
-					{!! Html::image('img/product_1.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_2.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_3.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-			<article>
-				<a href="">
-					{!! Html::image('img/product_1.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_2.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
-
-			<article>
-				<a href="">
-					{!! Html::image('img/product_3.png') !!}
-					<h1>Sweater - ASOS</h1>
-					<div class="price"><span>&euro;</span>90</div>
-					<div class="size">XS</div>
-					<div class="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</a>
-			</article>
+			@foreach($products as $product)
+				<article>
+					<a href="">
+						{!! Html::image('img/' . $product->image) !!}
+						<h1>{{$product->brand}}</h1>
+						<div class="price"><span>&euro;</span>{{$product->price}}</div>
+						<div class="size">{{$product->size}}</div>
+						<div class="colors">
+							@foreach($product->colors as $color)
+								<div style="background-color: {{$color->name}}"></div>
+							@endforeach
+						</div>
+					</a>
+				</article>
+			@endforeach
 
 		</div> <!-- end of featured-clothes-wrapper -->
 	</section>
