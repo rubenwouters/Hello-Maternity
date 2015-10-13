@@ -21,7 +21,7 @@ class ColorTableSeeder extends Seeder
 			array('name' => '#AE795A'),
 			array('name' => '#DCBE71'),
 			array('name' => '#DEE0C3'),
-			array('name' => '777777'),
+			array('name' => '#808080'),
 			array('name' => 'black')
 		);
 
