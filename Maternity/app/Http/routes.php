@@ -2,6 +2,8 @@
 
 
 Route::get('/', 'HomeController@index');
+Route::get('/product/view/{id}', 'HomeController@productInfo');
+
 
 // MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
@@ -11,12 +13,16 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/settings', 'DashboardController@settings');
 	Route::post('/settings/{id}', 'DashboardController@postSettings');
 
-	// CLOTHES MANAGER
+	// CLOTHES CRUD
 	Route::get('/dashboard/clothes/add', 'ClothesController@addClothes');
 	Route::post('/dashboard/clothes/save', 'ClothesController@saveClothes');
 	Route::get('/dashboard/clothes/edit/{id}', 'ClothesController@edit');
 	Route::get('/dashboard/clothes/delete/{id}', 'ClothesController@delete');
 	Route::post('/dashboard/clothes/update/{id}', 'ClothesController@updateClothes');
+
+	Route::get('/bag', 'BagController@index');
+	Route::get('/bag/add/{id}', 'BagController@add');
+	Route::get('/bag/remove/{id}', 'BagController@remove');
 });
 
 // LOGIN

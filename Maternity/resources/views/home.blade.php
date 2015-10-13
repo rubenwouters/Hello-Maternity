@@ -16,7 +16,7 @@
 			
 			@foreach($products as $product)
 				<article>
-					<a href="">
+					<a href="/product/view/{{$product->id}}">
 						{!! Html::image('img/' . $product->image) !!}
 						<h1>{{$product->brand}}</h1>
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>

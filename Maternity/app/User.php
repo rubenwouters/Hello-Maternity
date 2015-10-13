@@ -23,4 +23,8 @@ class User extends Model implements AuthenticatableContract,
     public function products(){
     	return $this->hasMany('App\Product');
     }
+
+    public function bags(){
+    	return $this->belongsToMany('App\Bag', 'bags_users', 'FK_user', 'FK_bag');
+    }
 }
