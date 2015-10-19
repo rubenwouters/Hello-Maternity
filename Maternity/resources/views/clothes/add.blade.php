@@ -4,7 +4,7 @@
 
 	<section class="content login">
 		<h2>Sell new piece</h2>
-		{!! Form::open(array('action' => array('ClothesController@saveClothes'))) !!}
+		{!! Form::open(array('action' => array('ClothesController@saveClothes'), 'files' => true)) !!}
 			
 			<p>Brand</p>
 			<input type="text" name="brand" value="">
@@ -52,7 +52,9 @@
 			</p>
 
 
-			<input type="file" value="">
+			{{-- <input name="image" type="file" value=""> --}}
+			{!! Form::file('image') !!}
+
 			<p>Preview Image</p>
 			{!! Html::image('img/product_2.png', 'pants') !!}
 			<input type="submit" class="submit" value="add piece">

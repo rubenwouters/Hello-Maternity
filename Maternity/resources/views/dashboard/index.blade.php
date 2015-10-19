@@ -22,7 +22,7 @@
 				
 				@foreach($products as $product)
 					<article>
-						<img src="img/{{ $product->image }}" alt="{{ $product->brand }}">
+						<img src="clothes_pictures/{{ $product->image }}" alt="{{ $product->brand }}">
 						<h1> {{ $product->brand }}</h1>
 						<div class="price"><span>&euro;</span>{{ $product->price }}</div>
 						<div class="size">{{ $product->size }}</div>

@@ -9,6 +9,8 @@ use App\Color;
 use App\Type;
 use App\Product;
 use Auth;
+use Image;
+use Input;
 
 class ClothesController extends Controller
 {
@@ -40,6 +42,12 @@ class ClothesController extends Controller
 
     public function fillData($request, $product){
 
+        // IMAGE
+        $image = $request->file('image');
+        $filename  = time() . '.' . $image->getClientOriginalExtension();
+        $path = public_path('clothes_pictures/' . $filename);
+        Image::make($image->getRealPath())->resize(320, 320)->save($path);
+
         $product->FK_type = $request->input('type');
         $product->FK_user = Auth::user()->id;
         $product->brand = $request->input('brand');
@@ -47,6 +55,7 @@ class ClothesController extends Controller
         $product->price = $request->input('price');
         $product->seller = Auth::user()->name;
         $product->paid = 0;
+        $product->image = $filename;
 
         $product->save();
 
