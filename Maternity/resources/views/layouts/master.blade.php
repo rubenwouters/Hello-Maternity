@@ -19,67 +19,69 @@
 		<!--[if lte IE 8]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
+		
 		<header>
 			<div class="search-clothes"> <!-- active -->
-				<a href="">search clothes</a>
-				<div class="search-fields">
-					<div class="distribute">
-						<div>{!! Html::image('img/icon_pants.svg', 'pants') !!}</div>
-						<div>{!! Html::image('img/icon_top.svg', 'tops') !!}</div>
-						<div>{!! Html::image('img/icon_dress.svg', 'dresses') !!}</div>
-						<span class="stretch"></span>
+				<a id="search">search clothes</a>
+				<form class="search-fields">
+					<div class="clothes">
+						<input type="checkbox" id="pants">
+						<input type="checkbox" id="tops">
+						<input type="checkbox" id="skirt">
 					</div>
-					<div class="distribute">
-						<div>XS</div>
-						<div>S</div>
-						<div>M</div>
-						<div>L</div>
-						<div>XL</div>
-						<span class="stretch"></span>
+					<div class="sizes">
+						<input type="checkbox" id="XS">
+						<input type="checkbox" id="S">
+						<input type="checkbox" id="M">
+						<input type="checkbox" id="L">
+						<input type="checkbox" id="XL">
 					</div>
-					<div>
-						PRICE
-					</div>
-					<div class="colors">
-						{!! Html::image('img/colors_all.png', 'colors', array('height' => '26', 'width' => '26')) !!}</a>
+					<div class="price">
 						<div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
+							<label>Min.</label>
+							<input type="text" id="min_price" value="0">
+						</div>
+						<div>
+							<label>Max.</label>
+							<input type="text" id="max_price" value="200">
+						</div>
+					</div>
+					<div class="color">
+						<!-- <input type="checkbox" class="all-colors"> -->
+						<div class="colors search">
+							<input type="checkbox" id="" style="background-color: lightgreen;"/>
+							<input type="checkbox" id="" style="background-color: tomato;"/>
+							<input type="checkbox" id="" style="background-color: lightblue;"/>
+							<input type="checkbox" id="" style="background-color: gold;"/>
+							<input type="checkbox" id="" style="background-color: white;"/>
+							<input type="checkbox" id="" style="background-color: black"/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
+							<input type="checkbox" id=""/>
 						</div>
 					</div>
 					<div class="search"><a href="">search</a></div>
-				</div>
+				</form>
 			</div>
-			<a href="/"><h1>{!! Html::image('img/logo.svg', 'Hello Maternity') !!}</h1></a>
+			<h1>{!! Html::image('img/logo.svg', 'Hello Maternity') !!}</h1>
 			<div class="login">
-
 				@if( Auth::check() )
 					<p><span class="bolder">Welcome {{ Auth::user()->name}}</span> <a href="/dashboard">dashboard</a> | <a href="/auth/logout">logout</a></p>
 					<p><a href="/bag"><span class="bolder">bag</span> ({{ count($bagContent)}}) </a></p>
 				@else
 					<p><a href="/auth/login">login</a> | <a href="/auth/register">register</a></p>
 				@endif
-				
 			</div>
 		</header>
+
+		
 
 		@yield('content')
 
@@ -94,6 +96,7 @@
 		
 
 		{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') !!}
+		{!! Html::script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js') !!}
 		{!! Html::script('js/app.js') !!}
 	</body>
 </html>
