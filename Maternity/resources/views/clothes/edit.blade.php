@@ -4,7 +4,7 @@
 
 	<section class="content login">
 		<h2>edit your piece</h2>
-		{!! Form::open(array('action' => array('ClothesController@updateClothes', $product->id))) !!}
+		{!! Form::open(array('action' => array('ClothesController@updateClothes', $product->id), 'files' => true)) !!}
 			
 			<p>Brand</p>
 			<input type="text" name="brand" value="{{$product->brand}}">
@@ -53,10 +53,11 @@
 				For an even better result try standing in front of a white wall in preferably natural light.
 			</p>
 
+			{!! Form::file('image') !!}
+			
 
-			<input type="file" value="">
 			<p>Preview Image</p>
-			{!! Html::image('img/product_2.png', 'pants') !!}
+			{!! Html::image('clothes_pictures/' . $product->image, 'pants') !!}
 			<input type="submit" class="submit" value="save changes">
 		{!! Form::close() !!}
 	</section>
