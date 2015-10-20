@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function productInfo($id){
 
         $product = Product::find($id);
-        $user = User::find(Auth::user()->id);
+        $user = User::find($product->FK_user);
 
         return view('clothes.view')->withProduct($product)->withUser($user);
     }

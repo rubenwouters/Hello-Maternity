@@ -9,7 +9,7 @@
 				@foreach($products as $product)
 					<article>
 						<a href="/product/view/{{$product->id}}">
-							{!! Html::image('img/' . $product->image) !!}
+							{!! Html::image('clothes_pictures/' . $product->image) !!}
 							<h1>{{$product->brand}}</h1>
 							<div class="price"><span>&euro;</span>{{$product->price}}</div>
 							<div class="size">{{$product->size}}</div>
@@ -32,9 +32,11 @@
 	</section>
 
 	<div class="content hairline">&nbsp;</div>
-
-	<section class="content bag">
-		<p>Total €380,-</p>
-		<a href="" class="rect-link">checkout</a>
-	</section>
+	
+	@if(isset($price))
+		<section class="content bag">
+			<p>Total {{$price}},-</p>
+			<a href="" class="rect-link">checkout</a>
+		</section>
+	@endif
 @stop

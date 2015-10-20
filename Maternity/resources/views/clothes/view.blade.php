@@ -5,7 +5,7 @@
 	<section class="content">
 		<div class="product-wrapper">
 			<div class="product">
-				{!! Html::image('img/' . $product->image) !!}
+				{!! Html::image('clothes_pictures/' . $product->image) !!}
 				<div class="info-wrapper">
 					<h1>{{$product->brand}}</h1>
 					<div class="price"><span>&euro;</span>{{$product->price}}</div>
@@ -23,7 +23,7 @@
 
 			<div class="provider profile">
 				<h2>Provider</h2>
-				{!! Html::image('img/' . $user->picture) !!}
+				{!! Html::image('profile_pictures/' . $user->picture) !!}
 				<div>
 					<p><span class="name">{{$user->name}}</span><br>
 					{{$user->location}}</p>

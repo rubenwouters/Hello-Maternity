@@ -11,6 +11,7 @@ use App\Product;
 use Auth;
 use Image;
 use Input;
+use Validator;
 
 class ClothesController extends Controller
 {
@@ -26,7 +27,7 @@ class ClothesController extends Controller
     public function saveClothes(Request $request){
 
         $product = new Product;
-        $this->fillData($request, $product);
+        $this->fillData($request, $product, false);
 
         return redirect()->action('DashboardController@index');
     }
@@ -35,18 +36,33 @@ class ClothesController extends Controller
 
         $product = Product::find($id);
         $product->colors()->detach();
-        $this->fillData($request, $product);
+        $this->fillData($request, $product, true);
 
         return redirect()->action('DashboardController@index');
     }
 
-    public function fillData($request, $product){
+    public function fillData($request, $product, $update){
 
         // IMAGE
-        $image = $request->file('image');
-        $filename  = time() . '.' . $image->getClientOriginalExtension();
-        $path = public_path('clothes_pictures/' . $filename);
-        Image::make($image->getRealPath())->resize(320, 320)->save($path);
+        if( ! $update || ($update && $request->file('image') != null )) {
+
+            $input = array('image' => $request->file('image'));
+            $rules = array( 'image' => 'required|image|max:10000' );
+            $validator = Validator::make($input, $rules);
+            
+            if( ! $validator->fails() ){
+
+                $image = $request->file('image');
+                $filename  = time() . '.' . $image->getClientOriginalExtension();
+                $path = public_path('clothes_pictures/' . $filename);
+                Image::make($image->getRealPath())->resize(320, 320)->save($path);
+
+                $product->image = $filename;
+            }
+            else{
+                dd("upload failed!");
+            }
+        }
 
         $product->FK_type = $request->input('type');
         $product->FK_user = Auth::user()->id;
@@ -55,7 +71,6 @@ class ClothesController extends Controller
         $product->price = $request->input('price');
         $product->seller = Auth::user()->name;
         $product->paid = 0;
-        $product->image = $filename;
 
         $product->save();
 

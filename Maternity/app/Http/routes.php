@@ -11,7 +11,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// ACCOUNT SETTINGS
 	Route::get('/settings', 'DashboardController@settings');
-	Route::post('/settings/{id}', 'DashboardController@postSettings');
+	Route::post('/settings/updateProfile/{id}', 'DashboardController@postSettings');
+	Route::post('/settings/changePassword/{id}', 'DashboardController@changePassword');
+	Route::post('/settings/uploadProfilePic/{id}', 'DashboardController@uploadProfilePic');
 
 	// CLOTHES CRUD
 	Route::get('/dashboard/clothes/add', 'ClothesController@addClothes');

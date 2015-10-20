@@ -52,11 +52,8 @@
 			</p>
 
 
-			{{-- <input name="image" type="file" value=""> --}}
 			{!! Form::file('image') !!}
 
-			<p>Preview Image</p>
-			{!! Html::image('img/product_2.png', 'pants') !!}
 			<input type="submit" class="submit" value="add piece">
 		{!! Form::close() !!}
 	</section>

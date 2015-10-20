@@ -3,7 +3,7 @@
 @section('content')
 	<section class="content profile">
 			<h2>Profile</h2>
-			{!! Html::image('img/' . $user->picture, 'profile picture') !!}
+			{!! Html::image('profile_pictures/' . $user->picture, 'profile picture') !!}
 			<div>
 				<p>
 					<span class="name">{{$user->name}}</span><br>
