@@ -2,6 +2,10 @@ a {
 	transition: background-color .2s, color .2s;
 }
 
+a:hover {
+ cursor:pointer;
+}
+
 .content {
 	width: 980px;
 	margin: 40px auto;

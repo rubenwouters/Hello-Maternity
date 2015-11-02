@@ -79,6 +79,7 @@ header {
 						background-repeat: no-repeat;
 						border: none;
 						// background-color: gold;
+						position: relative;
 
 
 						&:first-child {
@@ -108,6 +109,26 @@ header {
 
 						&:hover {
 							cursor: pointer;
+
+							&::after {
+								padding-top: 20px;
+								margin-left: -10px;
+								position: absolute;
+							}
+
+							&:first-child::after {
+								content: 'pants';
+							}
+
+							&:nth-child(2)::after {
+								content: 'tops';
+								margin-left: -7px;
+							}
+
+							&:last-child::after {
+								content: 'other';
+							}
+							
 						}
 
 						&:checked {
@@ -211,6 +232,7 @@ header {
 					// }
 
 					.colors {
+						margin-top: 10px;
 						// float: right;
 						// background-color: red;
 					}
@@ -290,8 +312,9 @@ header {
 		text-align: center;
 		position: absolute;
 		margin: 0 auto;
-		width: 100%;
-		z-index: -100;
+		left: 0;
+		right: 0;
+		width: 105px;
 	}
 
 	.login {

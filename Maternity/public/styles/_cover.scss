@@ -7,21 +7,27 @@
 	background-position: center;
 	background-size: cover;
 
+	transition: background-image 1s ease-in-out;
+
+	&.second-image {
+		background-image: url('../img/cover2.png');
+	}
+
 	> div {
 		width: 980px;
 		margin: 0 auto;
 
 		.arrow {
-			width: 60px;
-			height: 60px;
+			width: 45px;
+			height: 45px;
 			background-color: $cVeryLightTransparant;
 			margin-top: 170px;
 
 			img {
 				margin: 0 auto;
 				display: block;
-				height: 40px;
-				margin-top: 10px;
+				height: 31px;
+				margin-top: 7px;
 			}
 		}
 
