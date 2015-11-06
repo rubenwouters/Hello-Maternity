@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+	<section class="content back">
+		<a href="/dashboard">back</a>
+	</section>
 	<section class="content login">
 		<h2>Sell new piece</h2>
 		{!! Form::open(array('action' => array('ClothesController@saveClothes'), 'files' => true)) !!}

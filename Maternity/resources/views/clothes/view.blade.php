@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+	<section class="content back">
+		<a href="">back</a>
+	</section>
 
 	<section class="content">
 		<div class="product-wrapper">
