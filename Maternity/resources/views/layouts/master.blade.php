@@ -24,30 +24,41 @@
 			<div class="search-clothes"> <!-- active -->
 				<a id="search">search clothes</a>
 				<form class="search-fields">
+					
 					<div class="clothes">
-						<input type="checkbox" id="pants">
-						<input type="checkbox" id="tops">
-						<input type="checkbox" id="skirt">
+						<label>select the type of clothing you'd like to search for</label>
+						<div>
+							<input type="radio" name="clothes" value="pants">
+							<input type="radio" name="clothes" value="tops">
+							<input type="radio" name="clothes" value="skirt">
+						</div>
 					</div>
 					<div class="sizes">
-						<input type="checkbox" id="XS">
-						<input type="checkbox" id="S">
-						<input type="checkbox" id="M">
-						<input type="checkbox" id="L">
-						<input type="checkbox" id="XL">
+						<label>select your size</label>
+						<div>
+							<input type="radio" name="sizes" value="XS">
+							<input type="radio" name="sizes" value="S">
+							<input type="radio" name="sizes" value="M">
+							<input type="radio" name="sizes" value="L">
+							<input type="radio" name="sizes" value="XL">
+						</div>
 					</div>
 					<div class="price">
-						<div>
-							<label>Min.</label>
-							<input type="text" id="min_price" value="0">
-						</div>
-						<div>
-							<label>Max.</label>
-							<input type="text" id="max_price" value="200">
+						<label>add the minimum and maximun price for your clothes</label>
+						<div class="price-entry">
+							<div>
+								<label>min. in €</label>
+								<input type="text" id="min_price" value="0">
+							</div>
+							<div>
+								<label>max. in €</label>
+								<input type="text" id="max_price" value="200">
+							</div>
 						</div>
 					</div>
 					<div class="color">
 						<!-- <input type="checkbox" class="all-colors"> -->
+						<label>Select some colors you like</label>
 						<div class="colors search">
 							<input type="checkbox" id="" style="background-color: lightgreen;"/>
 							<input type="checkbox" id="" style="background-color: tomato;"/>
