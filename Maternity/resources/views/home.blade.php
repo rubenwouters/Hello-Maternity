@@ -5,10 +5,11 @@
 @section('content')
 	
 
-	<section class="cover-slider">
+	<section class="cover-slider pic-1">
 		<div>
-			<a href="" class="arrow left">{!! Html::image('img/arrow.svg', 'arrow left') !!}</a>
-			<a href="" class="arrow right">{!! Html::image('img/arrow.svg', 'arrow right') !!}</a>
+			<p>Inspiration board</p>
+			<a class="arrow left">{!! Html::image('img/arrow.svg', 'arrow left') !!}</a>
+			<a class="arrow right">{!! Html::image('img/arrow.svg', 'arrow right') !!}</a>
 		</div>
 	</section>
 

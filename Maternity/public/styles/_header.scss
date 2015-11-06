@@ -19,7 +19,6 @@ header {
 			> a {
 				border: none;
 
-
 				&:hover {
 					background-color: white;
 					color: $cLink;
@@ -52,7 +51,6 @@ header {
 		.search-fields {
 			display: none;
 			width: 200px;
-			border-bottom: none;
 			position: absolute;
 			left: -1px;
 
@@ -62,15 +60,29 @@ header {
 				width: 100%;
 				clear: both;
 				border: 1px solid $cBorderGray;
-				border-bottom: none;
+
+				&:not(:last-child) {
+					border-bottom: none;	
+				}
 				
 				// background-color: lightblue;
+
+				label {
+					// background-color: gold;
+					display: block;
+					width: 100%;
+					clear: both;
+					text-align: center;
+					margin-bottom: 10px;
+					line-height: 1.3em;
+				}
 				
 				&.clothes {
 					// background-color: lightgreen;
 					overflow: auto;
 
 					input {
+						// background-color: red;
 						width: 32px;
 						height: 32px;
 						float: left;
@@ -114,6 +126,7 @@ header {
 								padding-top: 20px;
 								margin-left: -10px;
 								position: absolute;
+								font-weight: 500;
 							}
 
 							&:first-child::after {
@@ -197,7 +210,7 @@ header {
 				&.price {
 					overflow: auto;
 
-					div {
+					.price-entry > div {
 						width: 45%;
 						float: left;
 						display: inline-block;
