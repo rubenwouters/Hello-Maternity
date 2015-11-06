@@ -3,7 +3,8 @@
 @section('content')
 	<section class="content profile">
 			<h2>Profile</h2>
-			{!! Html::image('profile_pictures/' . $user->picture, 'profile picture') !!}
+			{{-- {!! Html::image('profile_pictures/' . $user->picture, 'profile picture') !!} --}}
+			<img src="img/lady_placeholder.svg">
 			<div>
 				<p>
 					<span class="name">{{$user->name}}</span><br>
@@ -23,6 +24,7 @@
 				@foreach($products as $product)
 					<article>
 						<img src="clothes_pictures/{{ $product->image }}" alt="{{ $product->brand }}">
+
 						<h1> {{ $product->brand }}</h1>
 						<div class="price"><span>&euro;</span>{{ $product->price }}</div>
 						<div class="size">{{ $product->size }}</div>
