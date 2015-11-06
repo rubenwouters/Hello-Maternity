@@ -83,13 +83,17 @@ form {
 			border-radius: 50%;
 			border: 1px solid #ddd;
 			float: left;
+			border-collapse: separate;
+			opacity: .7;
 
 			&:hover {
-				border: 1px solid #bbb !important;
+				// border: 1px solid #888 !important;
+				opacity: 1.0;
 			}
 
 			&:checked {
-				border: 1px solid black !important;
+				border: 1px solid #555 !important;
+				opacity: 1.0;
 			}
 
 			&:nth-of-type(8n+8) {
