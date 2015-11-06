@@ -1,10 +1,6 @@
 @extends('layouts.master')
 
-
-
 @section('content')
-	
-
 	<section class="cover-slider pic-1">
 		<div>
 			<p>Inspiration board</p>
