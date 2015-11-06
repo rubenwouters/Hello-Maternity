@@ -81,7 +81,7 @@
 					<div class="search"><a href="">search</a></div>
 				</form>
 			</div>
-			<h1>{!! Html::image('img/logo.svg', 'Hello Maternity') !!}</h1>
+			<h1><a href="/">{!! Html::image('img/logo.svg', 'Hello Maternity') !!}</a></h1>
 			<div class="login">
 				@if( Auth::check() )
 					<p><span class="bolder">Welcome {{ Auth::user()->name}}</span> <a href="/dashboard">dashboard</a> | <a href="/auth/logout">logout</a></p>
