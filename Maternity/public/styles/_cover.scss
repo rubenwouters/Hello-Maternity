@@ -6,7 +6,7 @@
 	background-position: top;
 	background-size: cover;
 
-	transition: background-image 1s ease-in-out;
+	transition: background-image .5s ease-in-out;
 
 	&.pic-1 { background-image: url('../img/slider/cover1.jpg'); }
 	&.pic-2 { background-image: url('../img/slider/cover2.jpg'); }
