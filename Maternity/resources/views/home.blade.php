@@ -17,7 +17,7 @@
 				<article>
 					<a href="/product/view/{{$product->id}}">
 						{!! Html::image('clothes_pictures/' . $product->image) !!}
-						<h1>{{$product->brand}}</h1>
+						<h1> {{$product->brand}} </h1>
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
 						<div class="size">{{$product->size}}</div>
 						<div class="colors">

@@ -19,18 +19,21 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function($view) {
-            if(Auth::check())  {
-                $colors = Color::all();
-                $types = Type::all();
-                $maxPrice = Product::orderBy('price', 'DESC')->first()->price;
+            $maxPrice = Product::orderBy('price', 'DESC')->first()->price;
+            $colors = Color::all();
+            $types = Type::all();
 
+            if(Auth::check())  {
                 $view->with('bagContent', Auth::user()->bags)
                         ->with('colors', $colors)
                         ->with('types', $types)
                         ->with('maxPrice', $maxPrice);
             }
             else{
-                $view->with('bagContent', 0);
+                $view->with('bagContent', 0)
+                        ->with('maxPrice', $maxPrice)
+                        ->with('colors', $colors)
+                        ->with('types', $types);
             }
 
         });

@@ -2,7 +2,7 @@
 
 @section('content')
 	<section class="content back">
-		<a href="">back</a>
+		<a href="/">back</a>
 	</section>
 
 	<section class="content">
@@ -19,7 +19,13 @@
 						@endforeach
 					</div>
 				</div>
-				<a href="/bag/add/{{$product->id}}" class="rect-link mega">Put in bag</a>
+
+				{{-- CHECK IF IS IN BAG --}}
+				@if( in_array($product->id, $bag) )
+					<a href="/bag/remove/{{$product->id}}" class="rect-link mega">Remove from bag</a>
+				@else
+					<a href="/bag/add/{{$product->id}}" class="rect-link mega">Put in bag</a>
+				@endif
 			</div>
 
 			<div class="content hairline">&nbsp;</div>

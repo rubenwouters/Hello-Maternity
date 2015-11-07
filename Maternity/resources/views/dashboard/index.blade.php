@@ -2,9 +2,14 @@
 
 @section('content')
 	<section class="content profile">
+		
 			<h2>Profile</h2>
-			{{-- {!! Html::image('profile_pictures/' . $user->picture, 'profile picture') !!} --}}
-			<img src="img/lady_placeholder.svg">
+			@if($user->picture != "")	
+				{!! Html::image('profile_pictures/' . $user->picture, 'profile picture') !!}
+			@else
+				<img src="img/lady_placeholder.svg">
+			@endif
+
 			<div>
 				<p>
 					<span class="name">{{$user->name}}</span><br>

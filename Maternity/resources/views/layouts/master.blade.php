@@ -57,7 +57,12 @@
 							</div>
 							<div>
 								<label>max. in €</label>
-								<input type="text" id="max_price" value="{{$maxPrice}}">
+								@if(isset($maxPrice))
+									<input type="text" id="max_price" value="{{$maxPrice}}">
+								@else
+									<input type="text" id="max_price" value="0">
+								@endif
+
 							</div>
 						</div>
 					</div>

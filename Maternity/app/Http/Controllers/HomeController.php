@@ -21,8 +21,13 @@ class HomeController extends Controller
 
         $product = Product::find($id);
         $user = User::find($product->FK_user);
+        $arBag = [""];
 
-        return view('clothes.view')->withProduct($product)->withUser($user);
+        foreach (Auth::user()->bags as $key => $value) {
+            $arBag[$key] = $value->productId;
+        }
+
+        return view('clothes.view')->withProduct($product)->withUser($user)->withBag($arBag);
     }
 
     
