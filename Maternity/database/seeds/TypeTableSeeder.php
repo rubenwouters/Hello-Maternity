@@ -9,7 +9,7 @@ class TypeTableSeeder extends Seeder
         $types = array(
         	array('name' => "top"),
 			array('name' => 'pants'),
-			array('name' => 'skirt'),
+			array('name' => 'other'),
 		);
 
         DB::table('types')->insert($types);

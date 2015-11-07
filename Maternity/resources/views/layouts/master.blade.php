@@ -28,11 +28,13 @@
 					<div class="clothes">
 						<label>select the type of clothing you'd like to search for</label>
 						<div>
-							<input type="radio" name="clothes" value="pants">
-							<input type="radio" name="clothes" value="tops">
-							<input type="radio" name="clothes" value="skirt">
+							@foreach($types as $type)
+								<input type="radio" name="clothes" value="{{$type->id}}">
+							@endforeach
 						</div>
 					</div>
+
+					{{-- SIZES --}}
 					<div class="sizes">
 						<label>select your size</label>
 						<div>
@@ -43,8 +45,11 @@
 							<input type="radio" name="sizes" value="XL">
 						</div>
 					</div>
+
+
+					{{-- PRICE --}}
 					<div class="price">
-						<label>add the minimum and maximun price for your clothes</label>
+						<label>add your desired minimum and maximun price</label>
 						<div class="price-entry">
 							<div>
 								<label>min. in €</label>
@@ -52,47 +57,44 @@
 							</div>
 							<div>
 								<label>max. in €</label>
-								<input type="text" id="max_price" value="200">
+								<input type="text" id="max_price" value="{{$maxPrice}}">
 							</div>
 						</div>
 					</div>
+
+					{{-- COLORS --}}
 					<div class="color">
-						<!-- <input type="checkbox" class="all-colors"> -->
 						<label>Select some colors you like</label>
 						<div class="colors search">
-							<input type="checkbox" id="" style="background-color: lightgreen;"/>
-							<input type="checkbox" id="" style="background-color: tomato;"/>
-							<input type="checkbox" id="" style="background-color: lightblue;"/>
-							<input type="checkbox" id="" style="background-color: gold;"/>
-							<input type="checkbox" id="" style="background-color: white;"/>
-							<input type="checkbox" id="" style="background-color: black"/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
-							<input type="checkbox" id=""/>
+							@foreach($colors as $color)
+								<input type="checkbox" value="{{$color->id}}" id="color" name="colors[]" style="background-color: {{ $color->name }};">
+							@endforeach
 						</div>
 					</div>
+					{{-- SEARCH BTN --}}
 					<div class="search"><a href="">search</a></div>
 				</form>
 			</div>
+
+			{{-- LOGO --}}
 			<h1><a href="/">{!! Html::image('img/logo.svg', 'Hello Maternity') !!}</a></h1>
+			
+			{{-- LOGIN/REGISTER CONTROLS --}}
 			<div class="login">
 				@if( Auth::check() )
-					<p><span class="bolder">Welcome {{ Auth::user()->name}}</span> <a href="/dashboard">dashboard</a> | <a href="/auth/logout">logout</a></p>
-					<p><a href="/bag"><span class="bolder">bag</span> ({{ count($bagContent)}}) </a></p>
+					<p>
+						<span class="bolder">Welcome {{ Auth::user()->name}}</span> <a href="/dashboard">dashboard</a> | <a href="/auth/logout">logout</a>
+					</p>
+					<p>
+						<a href="/bag"><span class="bolder">bag</span> ({{ count($bagContent)}}) </a>
+					</p>
 				@else
-					<p><a href="/auth/login">login</a> | <a href="/auth/register">register</a></p>
+					<p>
+						<a href="/auth/login">login</a> | <a href="/auth/register">register</a>
+					</p>
 				@endif
 			</div>
 		</header>
-
-		
 
 		@yield('content')
 
@@ -105,7 +107,7 @@
 			back-end development <a href="http://rubenwouters.be/" target="_blank">Ruben Wouters</a>
 		</footer>
 		
-
+	
 		{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') !!}
 		{!! Html::script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js') !!}
 		{!! Html::script('js/app.js') !!}
