@@ -11,7 +11,7 @@
 			
 			<p>Brand</p>
 			<input type="text" name="brand" value="{{$product->brand}}">
-			<p class="error hide">Your brand is not valid</p>
+			<p class="error hide"><p class="error">{{ $errors->first('brand') }}</p></p>
 
 			<div class="horziontal-cozy">
 				<div>
@@ -21,7 +21,6 @@
 							<option @if ($type->id === $selectedType) selected  @endif name="type" value="{{$type->id}}">{{$type->name}}</option>
 						@endforeach
 					</select>
-					<p class="error">Invalid type</p>
 				</div>
 				<div>
 					<p>Size</p>
@@ -32,13 +31,12 @@
 						<option @if ($product->size = 'L') selected @endif value="L">Large</option>
 						<option @if ($product->size = 'XL') selected @endif value="XL">Extra Large</option>
 					</select>
-					<p class="error">Invalid size</p>
 				</div>
 			</div>
 
 			<p>Price €</p>
 			<input type="text" name="price" value="{{$product->price}}">
-			<p class="error">Your price is not valid. Note: You should not the Euro sign</p>
+			<p class="error">{{ $errors->first('price') }}</p>
 
 			<p>Colors</p>
 			<p class="info">
@@ -56,7 +54,8 @@
 						style="background-color: {{ $color->name }};">
 				@endforeach
 			</div>
-			<p class="error">You did not select any colors, just click them… easy as pie</p>
+			<p class="error">{{ $errors->first('colors') }}</p>
+			{{-- <p class="error">You did not select any colors, just click them… easy as pie</p> --}}
 
 			<p>Image</p>
 			<p class="info">
@@ -64,8 +63,8 @@
 				To get your clothes sold faster we recommend you to take a picture while you're wearing the clothes.<br>
 				For an even better result try standing in front of a white wall in preferably natural light.
 			</p>
-			{!! Form::file('image') !!}
-			<p class="error">Your image is not valid</p>
+			{!! Form::file('file', '' ,array('name' => 'file')) !!}
+			<p class="error">{{ $errors->first('file') }}</p>
 
 			<p>Preview Image</p>
 			{!! Html::image('clothes_pictures/' . $product->image, 'pants') !!}

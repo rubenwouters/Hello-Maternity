@@ -26,6 +26,13 @@ class ClothesController extends Controller
 
     public function saveClothes(Request $request){
 
+        $this->validate($request, [
+            'brand' => 'required',
+            'price' => 'required|integer',
+            'colors' => 'required',
+            'file' => 'required|image|max:10000'
+        ]);
+
         $product = new Product;
         $this->fillData($request, $product, false);
 
@@ -33,6 +40,13 @@ class ClothesController extends Controller
     }
 
     public function updateClothes(Request $request, $id){
+
+        $this->validate($request, [
+            'brand' => 'required',
+            'price' => 'required|integer',
+            'colors' => 'required',
+            'file' => 'image|max:10000'
+        ]);
 
         $product = Product::find($id);
         $product->colors()->detach();
@@ -44,24 +58,13 @@ class ClothesController extends Controller
     public function fillData($request, $product, $update){
 
         // IMAGE
-        if( ! $update || ($update && $request->file('image') != null )) {
+        if( ! $update || ($update && $request->file('file') != null )) {
+            $image = $request->file('file');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('clothes_pictures/' . $filename);
+            Image::make($image->getRealPath())->resize(320, 320)->save($path);
 
-            $input = array('image' => $request->file('image'));
-            $rules = array( 'image' => 'required|image|max:10000' );
-            $validator = Validator::make($input, $rules);
-            
-            if( ! $validator->fails() ){
-
-                $image = $request->file('image');
-                $filename  = time() . '.' . $image->getClientOriginalExtension();
-                $path = public_path('clothes_pictures/' . $filename);
-                Image::make($image->getRealPath())->resize(320, 320)->save($path);
-
-                $product->image = $filename;
-            }
-            else{
-                dd("upload failed!");
-            }
+            $product->image = $filename;
         }
 
         $product->FK_type = $request->input('type');

@@ -52,7 +52,7 @@
 			@foreach($related as $key => $product)
 
 				<article>
-					<a href="">
+					<a href="/product/view/{{$product->id}}">
 						{!! Html::image('clothes_pictures/' . $product->image) !!}
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
 						<div class="size">{{$product->size}}</div>

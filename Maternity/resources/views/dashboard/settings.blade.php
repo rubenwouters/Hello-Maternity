@@ -14,13 +14,15 @@
 
 		        <p>Name</p>
 		        <input type="text" name="name" value="{{ isset($user)? $user->name: '' }}">
+				<p class="error">{{ $errors->first('name') }}</p>
 
 		        <p>Email</p>
 		        <input type="email" name="email" value="{{ isset($user)? $user->email: '' }}">
+				<p class="error">{{ $errors->first('email') }}</p>
 
 		        <p>Location</p>
 		        <input type="text" name="location" value="{{ isset($user)? $user->location: '' }}">
-			
+				<p class="error">{{ $errors->first('location') }}</p>
 
 		    <div>
 		        <input type="submit" class="submit" value="update profile">
@@ -56,9 +58,11 @@
 
 		        <p>Password</p>
 		        <input type="password" name="password">
+		        <p class="error">{{ $errors->first('password') }}</p>
 
 		        <p>Confirm Password</p>
 		        <input type="password" name="password_confirmation">
+		        <p class="error">{{ $errors->first('password_confirmation') }}</p>
 
 		    <div>
 		        <input type="submit" class="submit" value="update password">

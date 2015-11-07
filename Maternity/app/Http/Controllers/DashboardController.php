@@ -34,6 +34,12 @@ class DashboardController extends Controller
 
     public function postSettings(Request $request, $id){
 
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'location' => 'required',
+        ]);
+
     	$user = $this->findUser($id);
     	$user->name = $request->input('name');
     	$user->email = $request->input('email');
@@ -46,6 +52,11 @@ class DashboardController extends Controller
 
     public function changePassword(Request $request, $id){
         
+        $this->validate($request, [
+            'password' => 'required',
+            'password_confirmation' => 'required',
+        ]);
+
         $user = $this->findUser($id);
         $user->password = bcrypt($request->input('password'));
 
