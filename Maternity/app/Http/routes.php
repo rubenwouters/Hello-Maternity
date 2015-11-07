@@ -3,7 +3,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/product/view/{id}', 'HomeController@productInfo');
-
+Route::post('/search', 'SearchController@search');
 
 // MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {

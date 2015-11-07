@@ -23,7 +23,7 @@
 		<header>
 			<div class="search-clothes"> <!-- active -->
 				<a id="search">search clothes</a>
-				<form class="search-fields">
+				{!! Form::open(array('action' => array('SearchController@search'), 'class' => 'search-fields')) !!}
 					
 					<div class="clothes">
 						<label>select the type of clothing you'd like to search for</label>
@@ -38,11 +38,11 @@
 					<div class="sizes">
 						<label>select your size</label>
 						<div>
-							<input type="radio" name="sizes" value="XS">
-							<input type="radio" name="sizes" value="S">
-							<input type="radio" name="sizes" value="M">
-							<input type="radio" name="sizes" value="L">
-							<input type="radio" name="sizes" value="XL">
+							<input type="radio" name="size" value="XS">
+							<input type="radio" name="size" value="S">
+							<input type="radio" name="size" value="M">
+							<input type="radio" name="size" value="L">
+							<input type="radio" name="size" value="XL">
 						</div>
 					</div>
 
@@ -53,14 +53,18 @@
 						<div class="price-entry">
 							<div>
 								<label>min. in €</label>
-								<input type="text" id="min_price" value="0">
+								@if(isset($minPrice))
+									<input name="minPrice" type="text" id="min_price" value="{{$minPrice}}">
+								@else
+									<input name="minPrice" type="text" id="min_price" value="0">
+								@endif
 							</div>
 							<div>
 								<label>max. in €</label>
 								@if(isset($maxPrice))
-									<input type="text" id="max_price" value="{{$maxPrice}}">
+									<input name="maxPrice" type="text" id="max_price" value="{{$maxPrice}}">
 								@else
-									<input type="text" id="max_price" value="0">
+									<input name="maxPrice" type="text" id="max_price" value="0">
 								@endif
 
 							</div>
@@ -77,8 +81,9 @@
 						</div>
 					</div>
 					{{-- SEARCH BTN --}}
-					<div class="search"><a href="">search</a></div>
-				</form>
+					{{-- <div class="search"><a href="/search">search</a></div> --}}
+					{!! Form::submit('search') !!}
+				{!! Form::close() !!}
 			</div>
 
 			{{-- LOGO --}}

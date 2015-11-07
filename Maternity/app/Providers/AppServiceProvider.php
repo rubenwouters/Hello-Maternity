@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function($view) {
             $maxPrice = Product::orderBy('price', 'DESC')->first()->price;
+            $minPrice = Product::orderBy('price', 'ASC')->first()->price;
             $colors = Color::all();
             $types = Type::all();
 
@@ -27,10 +28,12 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('bagContent', Auth::user()->bags)
                         ->with('colors', $colors)
                         ->with('types', $types)
-                        ->with('maxPrice', $maxPrice);
+                        ->with('maxPrice', $maxPrice)
+                        ->with('minPrice', $minPrice);
             }
             else{
                 $view->with('bagContent', 0)
+                        ->with('minPrice', $minPrice)
                         ->with('maxPrice', $maxPrice)
                         ->with('colors', $colors)
                         ->with('types', $types);

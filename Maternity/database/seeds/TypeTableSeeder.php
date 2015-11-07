@@ -7,8 +7,8 @@ class TypeTableSeeder extends Seeder
     public function run()
     {
         $types = array(
-        	array('name' => "top"),
-			array('name' => 'pants'),
+        	array('name' => "pants"),
+			array('name' => 'top'),
 			array('name' => 'other'),
 		);
 

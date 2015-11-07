@@ -32,7 +32,12 @@
 
 			<div class="provider profile">
 				<h2>Provider</h2>
-				{!! Html::image('profile_pictures/' . $user->picture) !!}
+				@if($user->picture != "")	
+					{!! Html::image('profile_pictures/' . $user->picture, 'profile picture') !!}
+				@else
+					<img src="/img/lady_placeholder.svg">
+				@endif
+
 				<div>
 					<p><span class="name">{{$user->name}}</span><br>
 					{{$user->location}}</p>
@@ -44,66 +49,16 @@
 		
 		<div class="related">
 			<h2>related</h2>
-			{{-- <div>
-				<article>
-					<a href="">
-						<img src="img/product_1.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
-				</article>
-				<article>
-					<a href="">
-						<img src="img/product_3.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
+			@foreach($related as $key => $product)
 
-				</article>
 				<article>
 					<a href="">
-						<img src="img/product_2.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
+						{!! Html::image('clothes_pictures/' . $product->image) !!}
+						<div class="price"><span>&euro;</span>{{$product->price}}</div>
+						<div class="size">{{$product->size}}</div>
 					</a>
 				</article>
-				<article>
-					<a href="">
-						<img src="img/product_3.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
-				</article>
-				<article>
-					<a href="">
-						<img src="img/product_2.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
-				</article>
-				<article>
-					<a href="">
-						<img src="img/product_1.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
-
-				</article>
-				<article>
-					<a href="">
-						<img src="img/product_2.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
-				</article>
-				<article>
-					<a href="">
-						<img src="img/product_3.png">
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-					</a>
-				</article>
-			</div> --}}
+			@endforeach
 		</div>
 	</section>
 @stop
