@@ -11,7 +11,7 @@
 			
 			<p>Brand</p>
 			<input type="text" name="brand" value="{{$product->brand}}">
-			<p class="error hide"><p class="error">{{ $errors->first('brand') }}</p></p>
+			<p class="error">{{ $errors->first('brand') }}</p>
 
 			<div class="horziontal-cozy">
 				<div>

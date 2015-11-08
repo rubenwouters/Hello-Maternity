@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Product extends Model
 {
@@ -31,19 +32,21 @@ class Product extends Model
 								->where('id', '!=', $id)
 								->whereHas('colors', function($query) use ($arColors) {
 							    	$query->whereIn('id', $arColors);
-							})->get();
+								})->get();
 								
 		return $related;
 	}
 
 	public static function search($type,$size,$maxPrice,$minPrice,$colors){
 		
-		return Product::where('FK_type', $type)
-						->where('size', $size)
-						->where('price', '>=', $minPrice)
-                        ->where('price', '<=', $maxPrice)
-                        ->with('colors')
-                        ->whereIn('id', $colors)
-                        ->get();
+
+		return Product::where('size', $size)
+							->where('FK_type', $type)
+							->where('id', '!=', Auth::user()->id)
+							->where('price', '>=', $minPrice)
+                        	->where('price', '<=', $maxPrice)
+							->whereHas('colors', function($query) use ($colors) {
+						    	$query->whereIn('id', $colors);
+							})->get();
 	}
 }

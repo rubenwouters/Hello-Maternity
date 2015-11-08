@@ -5,6 +5,7 @@
 		<h2>Search result</h2>
 	
 		<div class="featured-clothes-wrapper">
+			@if(isset($results) && count($results) > 0)
 			@foreach($results as $product)
 				<article>
 					<a href="/product/view/{{$product->id}}">
@@ -21,8 +22,16 @@
 				</article>
 			@endforeach
 
-			@if(count($results) < 1)
-				Aw! :( No search results. 
+			@else
+
+				<p class="error">
+					{{ $errors->first('clothes') }}<br>
+					{{ $errors->first('size') }}<br>
+					{{ $errors->first('colors') }}<br>
+					{{ $errors->first('maxPrice') }}<br>
+					{{ $errors->first('minPrice') }}
+				</p>
+				
 			@endif
 		</div>
 	</section>
