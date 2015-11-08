@@ -27,7 +27,6 @@ class BagController extends Controller
         }
        
         return view('bag.index')->withUser($user);
-
     }
 
     public function add($id){
@@ -48,5 +47,21 @@ class BagController extends Controller
         $user->bags()->detach($bagNr);
 
         return redirect()->action('BagController@index');
+    }
+
+    public function checkout(){
+
+        foreach(Auth::user()->bags as $bag){
+
+            $product = Product::find($bag->productId);
+            $product->paid = 1;
+            $product->save();
+        }
+
+        Auth::user()->bags()->detach();
+
+
+        return redirect()->action('BagController@index');
+
     }
 }

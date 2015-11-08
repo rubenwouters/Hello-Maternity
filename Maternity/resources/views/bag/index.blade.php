@@ -36,7 +36,7 @@
 	@if(isset($price))
 		<section class="content bag">
 			<p>Total {{$price}},-</p>
-			<a href="" class="rect-link">checkout</a>
+			<a href="/bag/checkout" class="rect-link">checkout</a>
 		</section>
 	@endif
 @stop

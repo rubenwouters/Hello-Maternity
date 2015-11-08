@@ -110,4 +110,12 @@ class ClothesController extends Controller
         $product->delete();
         return redirect()->action('DashboardController@index');
     }
+
+    public function deleteHistory(){
+
+        $sold = Product::where('FK_user', Auth::user()->id)->where('paid', 1);
+        $sold->delete();
+
+        return redirect()->action('DashboardController@index');
+    }
 }

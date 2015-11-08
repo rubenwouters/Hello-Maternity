@@ -22,8 +22,13 @@ class DashboardController extends Controller
                     ->orderBy('id', 'DESC')
                     ->get();
 
+        $sold = Product::where('FK_user', Auth::user()->id)
+                            ->where('paid', 1)
+                            ->orderBy('id', 'DESC')
+                            ->get();
+
         
-        return view('dashboard.index')->withUser($user)->withProducts($products);
+        return view('dashboard.index')->withUser($user)->withProducts($products)->withSold($sold);
     }
 
     public function settings(){

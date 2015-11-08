@@ -51,79 +51,30 @@
 
 		<div class="hairline">&nbsp;</div>
 
-		<section class="content">
-			<h2>History Sold</h2>
-			<a href="" class="rect-link dark">clear history</a>
-			<div class="featured-clothes-wrapper spacing-top">
-				<article>
-					<a href="">
-						<img src="img/product_1.png">
-						<h1>Sweater - ASOS</h1>
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-						<div class="colors">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</a>
-				</article>
+		@if(count($sold) > 0)
+			<section class="content">
+				<h2>History Sold</h2>
+				<a href="/dashboard/history/clear" class="rect-link dark">clear history</a>
+				<div class="featured-clothes-wrapper spacing-top">
+					
+					@foreach($sold as $item)
+						<article>
+							{{-- <a href="/product/view/{{$item->id}}"> --}}
+								<img src="clothes_pictures/{{ $item->image }}" alt="{{ $item->brand }}">
 
-				<article>
-					<a href="">
-						<img src="img/product_2.png">
-						<h1>Sweater - ASOS</h1>
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-						<div class="colors">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</a>
-				</article>
+								<h1> {{ $item->brand }}</h1>
+								<div class="price"><span>&euro;</span>{{ $item->price }}</div>
+								<div class="size">{{ $item->size }}</div>
+								<div class="colors">
+									@foreach($item->colors as $color)
+										<div style="background-color: {{$color->name}}"></div>
+									@endforeach
+								</div>
+							{{-- </a> --}}
+						</article>
+					@endforeach
 
-				<article>
-					<a href="">
-						<img src="img/product_3.png">
-						<h1>Sweater - ASOS</h1>
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-						<div class="colors">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</a>
-				</article>
-				
-				<article>
-					<a href="">
-						<img src="img/product_1.png">
-						<h1>Sweater - ASOS</h1>
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-						<div class="colors">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</a>
-				</article>
-
-				<article>
-					<a href="">
-						<img src="img/product_2.png">
-						<h1>Sweater - ASOS</h1>
-						<div class="price"><span>&euro;</span>90</div>
-						<div class="size">XS</div>
-						<div class="colors">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</a>
-				</article>
-			</div>
-		</section>
+				</div>
+			</section>
+		@endif
 @stop
