@@ -9,13 +9,15 @@
 		<h2>edit your piece</h2>
 		{!! Form::open(array('action' => array('ClothesController@updateClothes', $product->id), 'files' => true)) !!}
 			
-			<p>Brand</p>
+			{{-- BRAND --}}
+			<p>{!! Form::label('brand', 'Brand'); !!}</p>
 			<input type="text" name="brand" value="{{$product->brand}}">
 			<p class="error">{{ $errors->first('brand') }}</p>
 
+			{{-- TYPE & SIZE --}}
 			<div class="horziontal-cozy">
 				<div>
-					<p>Type</p>
+					<p>{!! Form::label('type', 'Type'); !!}</p>
 					<select name="type">
 						@foreach($types as $type)
 							<option @if ($type->id === $selectedType) selected  @endif name="type" value="{{$type->id}}">{{$type->name}}</option>
@@ -23,22 +25,24 @@
 					</select>
 				</div>
 				<div>
-					<p>Size</p>
+					<p>{!! Form::label('size', 'Size'); !!}</p>
 					<select name="size">
-						<option @if ($product->size = 'XS') selected @endif value="XS">Extra Small</option>
-						<option @if ($product->size = 'S') selected @endif value="S">Small</option>
-						<option @if ($product->size = 'M') selected @endif value="M">Medium</option>
-						<option @if ($product->size = 'L') selected @endif value="L">Large</option>
-						<option @if ($product->size = 'XL') selected @endif value="XL">Extra Large</option>
+						<option @if($product->size == 'XS') selected @endif value="XS">Extra Small</option>
+						<option @if($product->size == 'S') selected @endif value="S">Small</option>
+						<option @if($product->size == 'M') selected @endif value="M">Medium</option>
+						<option @if($product->size == 'L') selected @endif value="L">Large</option>
+						<option @if($product->size == 'XL') selected @endif value="XL">Extra Large</option>
 					</select>
 				</div>
 			</div>
-
-			<p>Price €</p>
+			
+			{{-- PRICE --}}
+			<p>{!! Form::label('price', 'Price €'); !!}</p>
 			<input type="text" name="price" value="{{$product->price}}">
 			<p class="error">{{ $errors->first('price') }}</p>
-
-			<p>Colors</p>
+			
+			{{-- COLORS --}}
+			<p>{!! Form::label('colors', 'Colors'); !!}</p>
 			<p class="info">
 				Are you like… hu?? Select some colors that are the closest to the piece you want to add. <br>
 				This helps other people better find your clothes.
@@ -46,7 +50,7 @@
 			<div class="colors">
 				@foreach($colors as $color)
 					<input 
-						@if ( in_array($color->id, $selectedColors) ) checked="true" @endif 
+						@if( in_array($color->id, $selectedColors) ) checked="true" @endif 
 						type="checkbox" 
 						value="{{$color->id}}" 
 						id="color" 
@@ -55,9 +59,9 @@
 				@endforeach
 			</div>
 			<p class="error">{{ $errors->first('colors') }}</p>
-			{{-- <p class="error">You did not select any colors, just click them… easy as pie</p> --}}
 
-			<p>Image</p>
+			{{-- IMAGE --}}
+			<p>{!! Form::label('image', 'Image'); !!}</p>
 			<p class="info">
 				Some tips…<br>
 				To get your clothes sold faster we recommend you to take a picture while you're wearing the clothes.<br>
@@ -65,10 +69,12 @@
 			</p>
 			{!! Form::file('file', '' ,array('name' => 'file')) !!}
 			<p class="error">{{ $errors->first('file') }}</p>
+	
+			{{-- CURRENT IMAGE --}}
+			<p>{!! Form::label('currentImage', 'Current image'); !!}</p>
+			{!! Html::image('clothes_thumbnail/' . $product->image, 'pants') !!}
 
-			<p>Preview Image</p>
-			{!! Html::image('clothes_pictures/' . $product->image, 'pants') !!}
-			<input type="submit" class="submit" value="save changes">
+			{!! Form::submit('save changes', array('class' => 'submit')) !!}
 		{!! Form::close() !!}
 	</section>
 

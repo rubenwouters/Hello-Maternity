@@ -1,11 +1,11 @@
 <?php
 
-
+// BASIC ROUTES
 Route::get('/', 'HomeController@index');
 Route::get('/product/view/{id}', 'HomeController@productInfo');
 Route::post('/search', 'SearchController@search');
 
-// MIDDLEWARE
+// AUTHENTICATED USERS
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/dashboard', 'DashboardController@index');
 
@@ -21,9 +21,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/dashboard/clothes/edit/{id}', 'ClothesController@edit');
 	Route::get('/dashboard/clothes/delete/{id}', 'ClothesController@delete');
 	Route::post('/dashboard/clothes/update/{id}', 'ClothesController@updateClothes');
-
 	Route::get('/dashboard/history/clear', 'ClothesController@deleteHistory');
 
+	// BAG CRUD
 	Route::get('/bag', 'BagController@index');
 	Route::get('/bag/add/{id}', 'BagController@add');
 	Route::get('/bag/remove/{id}', 'BagController@remove');

@@ -6,6 +6,7 @@
 	</section>
 
 	<section class="content">
+
 		<div class="product-wrapper">
 			<div class="product">
 				{!! Html::image('clothes_pictures/' . $product->image) !!}
@@ -53,12 +54,13 @@
 
 				<article>
 					<a href="/product/view/{{$product->id}}">
-						{!! Html::image('clothes_pictures/' . $product->image) !!}
+						{!! Html::image('clothes_thumbnail/' . $product->image) !!}
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
 						<div class="size">{{$product->size}}</div>
 					</a>
 				</article>
 			@endforeach
 		</div>
+		
 	</section>
 @stop

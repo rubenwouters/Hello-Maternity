@@ -57,12 +57,16 @@ class ClothesController extends Controller
 
     public function fillData($request, $product, $update){
 
-        // IMAGE
+        // IMAGE HANDLING
         if( ! $update || ($update && $request->file('file') != null )) {
+            
             $image = $request->file('file');
             $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $thumbnailPath = public_path('clothes_thumbnail/' . $filename);
             $path = public_path('clothes_pictures/' . $filename);
-            Image::make($image->getRealPath())->resize(320, 320)->save($path);
+
+            Image::make($image->getRealPath())->resize(320, 320)->save($thumbnailPath);
+            Image::make($image->getRealPath())->resize(500, 500)->save($path);
 
             $product->image = $filename;
         }
@@ -108,6 +112,7 @@ class ClothesController extends Controller
 
         $product = Product::find($id);
         $product->delete();
+        
         return redirect()->action('DashboardController@index');
     }
 

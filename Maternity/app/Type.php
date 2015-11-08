@@ -8,6 +8,7 @@ class Type extends Model
 {
     protected $table = 'types';
 
+    // RELATIONS
     public function products(){
     	return $this->hasMany('App\Product');
     }

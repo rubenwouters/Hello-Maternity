@@ -8,13 +8,15 @@
 		<h2>Sell new piece</h2>
 		{!! Form::open(array('action' => array('ClothesController@saveClothes'), 'files' => true)) !!}
 			
-			<p>Brand</p>
-			<input type="text" name="brand" value="">
+			{{-- BRAND --}}
+			<p>{!! Form::label('brand', 'Brand'); !!}</p>
+			{!! Form::text('brand') !!}
 			<p class="error">{{ $errors->first('brand') }}</p>
-
+			
+			{{-- TYPE & SIZE --}}
 			<div class="horziontal-cozy">
 				<div>
-					<p>Type</p>
+					<p>{!! Form::label('type', 'Type'); !!}</p>
 					<select name="type">
 						@foreach($types as $type)
 							<option name="type" value="{{$type->id}}">{{$type->name}}</option>
@@ -22,35 +24,32 @@
 					</select>
 				</div>
 				<div>
-					<p>Size</p>
-					<select name="size">
-					  <option value="XS">Extra Small</option>
-					  <option value="S">Small</option>
-					  <option value="M">Medium</option>
-					  <option value="L">Large</option>
-					  <option value="XL">Extra Large</option>
-					</select>
+					<p>{!! Form::label('size', 'Size'); !!}</p>
+					{!! Form::select('size', array('XS' => 'Extra Small', 'S' => 'Small', 'M' => 'Medium', 'L' => 'Large', 'XL' => 'Extra Large'), null); !!}
 				</div>
 			</div>
 
-			<p>Price €</p>
-			<input type="text" name="price" value="">
+			{{-- PRICE --}}
+			<p>{!! Form::label('price', 'Price €'); !!}</p>
+			{!! Form::text('price') !!}
 			<p class="error">{{ $errors->first('price') }}</p>
 
-			<p>Colors</p>
+			{{-- COLORS --}}
+			<p>{!! Form::label('colors', 'Colors'); !!}</p>
 			<p class="info">
 				Are you like… hu?? Select some colors that are the closest to the piece you want to add. <br>
 				This helps other people better find your clothes.
 			</p>
+
 			<div class="colors">
 				@foreach($colors as $color)
 					<input type="checkbox" value="{{$color->id}}" id="color" name="colors[]" style="background-color: {{ $color->name }};">
 				@endforeach
 			</div>
-			{{-- <p class="error">You did not select any colors, just click them… easy as pie</p> --}}
 			<p class="error">{{ $errors->first('colors') }}</p>
-
-			<p>Image</p>
+	
+			{{-- IMAGE --}}
+			<p>{!! Form::label('image', 'Image'); !!}</p>
 			<p class="info">
 				Some tips…<br>
 				- To get your clothes sold faster we recommend you to take a picture while you're wearing the clothes.<br>
@@ -58,9 +57,10 @@
 			</p>
 			{!! Form::file('file', '' ,array('name' => 'file')) !!}
 			<p class="error">{{ $errors->first('file') }}</p>
-
-			<input type="submit" class="submit" value="add piece">
-
+			
+			{{-- SUMBIT BUTTON --}}
+			{!! Form::submit('add piece', array('class' => 'submit')) !!}
+		
 		{!! Form::close() !!}
 	</section>
 @stop

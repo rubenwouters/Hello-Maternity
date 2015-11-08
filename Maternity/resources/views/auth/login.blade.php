@@ -3,21 +3,21 @@
 @section('content')
 
 	<section class="content login">
-	<h2>login</h2>
+		
+		<h2>login</h2>
 
-		<form method="POST" action="/auth/login">
+		{!! Form::open(array('url' => 'auth/login')) !!}
 		    {!! csrf_field() !!}
 
-	        <p>Email</p>
-	        <input type="email" name="email" value="{{ old('email') }}">
-	        <p class="error">{{ $errors->first('email') }}</p>
+	        <p> {!! Form::label('email', 'Email'); !!} </p>
+	        {!! Form::email('email') !!}
+	        <p class="error"> {{ $errors->first('email') }} </p>
 		   
-	        <p>Password</p>
-	        <input type="password" name="password" id="password">
-	        
-	        <p class="error">{{ $errors->first('password') }}</p>
+	        <p> {!! Form::label('password', 'Password'); !!} </p>
+	        {!! Form::password('password', array('id' => 'password')) !!}
+	        <p class="error"> {{ $errors->first('password') }} </p>
 
-	        <button type="submit" class="submit">Login</button>
-		</form>
+	        {!! Form::submit('Login', array('class' => 'submit')) !!}
+		{!! Form::close() !!}
 	</section>
 @stop

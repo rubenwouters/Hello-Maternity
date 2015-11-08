@@ -15,18 +15,19 @@ class BagController extends Controller
 {
     public function index(){
 
-        $user = User::find(Auth::user()->id);
+        $user = Auth::user();
         $price = 0;
+
         if(count($user->bags) != 0){
-            foreach ($user->bags as $key => $product) {
-                $arProducts[] = Product::findOrFail($product->productId);
-                
+
+            foreach ($user->bags as $key => $product){
+
+                $arProducts[$key] = Product::findOrFail($product->productId);
                 $price += $arProducts[$key]->price;
             } 
-            return view('bag.index')->withUser($user)->withProducts($arProducts)->withPrice($price);
+            return view('bag.index')->withProducts($arProducts)->withPrice($price);
         }
-       
-        return view('bag.index')->withUser($user);
+        return view('bag.index');
     }
 
     public function add($id){
@@ -59,9 +60,7 @@ class BagController extends Controller
         }
 
         Auth::user()->bags()->detach();
-
-
+        
         return redirect()->action('BagController@index');
-
     }
 }

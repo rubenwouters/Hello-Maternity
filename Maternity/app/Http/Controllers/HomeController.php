@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = Product::where('paid', 0)->orderBy('id', 'DESC')->get();
+        $products = Product::getProducts();
         return view('home')->withProducts($products);
     }
 
@@ -21,8 +21,8 @@ class HomeController extends Controller
 
         $product = Product::find($id);
         $user = User::find($product->FK_user);
-        $arBag = [""];
         $related = Product::getRelated($id);
+        $arBag = [];
 
         foreach (Auth::user()->bags as $key => $value) {
             $arBag[$key] = $value->productId;
@@ -34,6 +34,4 @@ class HomeController extends Controller
                     ->withBag($arBag)
                     ->withRelated($related);
     }
-
-    
 }

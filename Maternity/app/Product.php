@@ -10,6 +10,7 @@ class Product extends Model
     protected $table = 'products';
     public $timestamps = false;
 
+    // RELATIONS
     public function colors(){
     	return $this->belongsToMany('App\Color', 'colors_products', 'FK_product', 'FK_color');
     }
@@ -20,7 +21,26 @@ class Product extends Model
 
 
 	// DB INTERACTION 
+	public static function getProducts(){
+		return Product::where('paid', 0)->orderBy('id', 'DESC')->get();
+	}
+
+	public static function getUserProducts(){
+		return Product::where('FK_user', Auth::user()->id)
+                        ->where('paid', 0)
+                        ->orderBy('id', 'DESC')
+                        ->get();
+	}
+
+	public static function getSoldProducts(){
+		return Product::where('FK_user', Auth::user()->id)
+                        ->where('paid', 1)
+                        ->orderBy('id', 'DESC')
+                        ->get();
+	}
+
 	public static function getRelated($id){
+		
 		$currentProduct = Product::find($id);
 
 		foreach ($currentProduct->colors as $key => $value) {
@@ -37,9 +57,8 @@ class Product extends Model
 		return $related;
 	}
 
-	public static function search($type,$size,$maxPrice,$minPrice,$colors){
-		
-
+	public static function search($type, $size, $maxPrice, $minPrice, $colors){
+	
 		return Product::where('size', $size)
 							->where('FK_type', $type)
 							->where('id', '!=', Auth::user()->id)

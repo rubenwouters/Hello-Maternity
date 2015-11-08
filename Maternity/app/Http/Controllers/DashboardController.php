@@ -16,24 +16,16 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = User::find(Auth::user()->id);
-        $products = Product::where('FK_user', Auth::user()->id)
-                    ->where('paid', 0)
-                    ->orderBy('id', 'DESC')
-                    ->get();
+        $user = Auth::user();
+        $products = Product::getUserProducts();
+        $sold = Product::getSoldProducts();
 
-        $sold = Product::where('FK_user', Auth::user()->id)
-                            ->where('paid', 1)
-                            ->orderBy('id', 'DESC')
-                            ->get();
-
-        
         return view('dashboard.index')->withUser($user)->withProducts($products)->withSold($sold);
     }
 
     public function settings(){
 
-    	$user = User::find(Auth::user()->id);
+    	$user = Auth::user();
     	return view('dashboard.settings')->withUser($user);
     }
 
@@ -72,8 +64,8 @@ class DashboardController extends Controller
     }
 
     public function uploadProfilePic(Request $request, $id){
-        $user = $this->findUser($id);
         
+        $user = $this->findUser($id);
         $input = array('image' => $request->file('profilePic'));
         $rules = array( 'image' => 'required|image|max:10000' );
         $validator = Validator::make($input, $rules);
@@ -88,15 +80,11 @@ class DashboardController extends Controller
             $user->picture = $filename;
             $user->save();
         }
-        else{
-            dd("upload failed!");
-        }
 
         return redirect()->action('DashboardController@index');
     }
 
     public function findUser($id){
         return User::find($id);
-
     }
 }

@@ -3,13 +3,17 @@
 @section('content')
 
 	<section class="content">
+
 		<h2>Your bag</h2>
+
 		<div class="featured-clothes-wrapper spacing-top">
-			@if( isset($products))
+
+			@if(isset($products))
 				@foreach($products as $product)
+				
 					<article>
 						<a href="/product/view/{{$product->id}}">
-							{!! Html::image('clothes_pictures/' . $product->image) !!}
+							{!! Html::image('clothes_thumbnail/' . $product->image) !!}
 							<h1>{{$product->brand}}</h1>
 							<div class="price"><span>&euro;</span>{{$product->price}}</div>
 							<div class="size">{{$product->size}}</div>
@@ -28,7 +32,9 @@
 			@else
 				Aw! Nothing in your bag yet!
 			@endif
+
 		</div>
+
 	</section>
 
 	<div class="content hairline">&nbsp;</div>

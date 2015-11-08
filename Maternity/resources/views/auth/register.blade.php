@@ -3,34 +3,35 @@
 @section('content')
 	<section class="content login">
 	<h2>create account</h2>
-		<form method="POST" action="/auth/register">
+		{!! Form::open(array('url' => 'auth/register')) !!}
+
 
 			{!! csrf_field() !!}
 
-			<p>Name</p>
-			<input type="text" name="name" value="{{ old('name') }}">
+			<p> {!! Form::label('name', 'Name'); !!} </p>
+			{!! Form::text('name') !!}
 			<p class="error">{{ $errors->first('name') }}</p>
 
-			<p>Email</p>
-			<input type="email" name="email" value="{{ old('email') }}">
+			<p> {!! Form::label('email', 'Email'); !!} </p>
+			{!! Form::email('email') !!}
 			<p class="error">{{ $errors->first('email') }}</p>
 
-			<p>Password</p>
-			<input type="password" name="password">
+			<p> {!! Form::label('password', 'Password'); !!} </p>
+			{!! Form::password('password', array('id' => 'password')) !!}
 			<p class="error">{{ $errors->first('password') }}</p>
 
-			<p>Confirm Password</p>
-			<input type="password" name="password_confirmation">
+			<p> {!! Form::label('password_confirmation', 'Confirm Password'); !!} </p>
+			{!! Form::password('password_confirmation', array('id' => 'password')) !!}
 			<p class="error">{{ $errors->first('password_confirmation') }}</p>
 
-			<p>Location</p>
-			<input type="text" name="location" value="{{ old('location') }}">
+			<p> {!! Form::label('location', 'Location'); !!} </p>
+			{!! Form::text('location') !!}
 			<p class="error">{{ $errors->first('location') }}</p>
 
 			<div>
-				<input type="submit" class="submit" value="create account">
+				{!! Form::submit('Create account', array('class' => 'submit')) !!}
 			</div>
 
-		</form>
+		{!! Form::close() !!}
 	</section>
 @stop
