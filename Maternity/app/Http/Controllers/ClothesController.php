@@ -59,14 +59,14 @@ class ClothesController extends Controller
 
         // IMAGE HANDLING
         if( ! $update || ($update && $request->file('file') != null )) {
-            
+        
             $image = $request->file('file');
             $filename  = time() . '.' . $image->getClientOriginalExtension();
             $thumbnailPath = public_path('clothes_thumbnail/' . $filename);
             $path = public_path('clothes_pictures/' . $filename);
 
-            Image::make($image->getRealPath())->resize(320, 320)->save($thumbnailPath);
-            Image::make($image->getRealPath())->resize(500, 500)->save($path);
+            Image::make($image->getRealPath())->fit(320, 320)->save($thumbnailPath);
+            Image::make($image->getRealPath())->fit(500, 500)->save($path);
 
             $product->image = $filename;
         }
