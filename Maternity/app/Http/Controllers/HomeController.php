@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('id', 'DESC')->get();
+        $products = Product::where('paid', 0)->orderBy('id', 'DESC')->get();
         return view('home')->withProducts($products);
     }
 
@@ -22,12 +22,17 @@ class HomeController extends Controller
         $product = Product::find($id);
         $user = User::find($product->FK_user);
         $arBag = [""];
+        $related = Product::getRelated($id);
 
         foreach (Auth::user()->bags as $key => $value) {
             $arBag[$key] = $value->productId;
         }
 
-        return view('clothes.view')->withProduct($product)->withUser($user)->withBag($arBag);
+        return view('clothes.view')
+                    ->withProduct($product)
+                    ->withUser($user)
+                    ->withBag($arBag)
+                    ->withRelated($related);
     }
 
     
