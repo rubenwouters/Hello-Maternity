@@ -41,6 +41,10 @@ class BagController extends Controller
         $bag->users()->attach(Auth::user()->id);
         $bag->products()->attach($id);
 
+        if(Auth::user()->bags->where('productId', $id)->where('inBag', 0)->first()->exists()){
+            return redirect('heartbag/remove/' . $id);
+        }
+    
         return redirect::back();
     }
 
