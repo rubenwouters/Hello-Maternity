@@ -6,14 +6,21 @@ class UserTableSeeder extends Seeder
 {
     public function run()
     {
-		$users = array(
+		$users = [
+			[	
+				'name' => 'Ruben', 
+				'email' => 'ruben@test.be',
+				'password' => bcrypt('tester'),
+				'location' => 'Antwerp'
+			],
+			[
+				'name' => 'Dries',
+				'email' => 'dries@test.com',
+				'password' => bcrypt('tester'),
+				'location' => 'Antwerp'
+			]
+		];
 
-			array(	'name' => 'Ruben', 
-					'email' => 'ruben@test.be',
-					'password' => '$2y$10$SFeuTFpJiFtJNGio19oDv.Mfwf2YFmrHJJ/0xTLTQUSSqdBWSF8h6',
-					'location' => "Antwerp"
-			));
-
-			DB::table('users')->insert($users);
+		DB::table('users')->insert($users);
     }
 }
