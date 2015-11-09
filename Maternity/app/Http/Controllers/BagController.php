@@ -16,11 +16,12 @@ class BagController extends Controller
     public function index(){
 
         $user = Auth::user();
+        $arProducts= [];
         $price = 0;
 
         if(count($user->bags) != 0){
 
-            foreach ($user->bags as $key => $product){
+            foreach ($user->bags->where('inBag', 1) as $key => $product){
 
                 $arProducts[$key] = Product::findOrFail($product->productId);
                 $price += $arProducts[$key]->price;
@@ -34,9 +35,11 @@ class BagController extends Controller
 
         $bag = new Bag;
         $bag->productId = $id;
+        $bag->inBag = 1;
 
         $bag->save();
         $bag->users()->attach(Auth::user()->id);
+        $bag->products()->attach($id);
 
         return redirect::back();
     }
@@ -44,10 +47,13 @@ class BagController extends Controller
     public function remove($id){
         
         $user = User::find(Auth::user()->id);
-        $bagNr = $user->bags->last()->id;
-        $user->bags()->detach($bagNr);
+        $bagNr = $user->bags->where('productId', $id)->first();
+        $bagNr->delete();
 
-        return redirect()->action('BagController@index');
+        $user->bags()->detach($bagNr->pivot->FK_bag);
+        $bagNr->products()->detach($id);
+
+        return back();
     }
 
     public function checkout(){
