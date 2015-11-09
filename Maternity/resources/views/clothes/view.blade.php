@@ -51,7 +51,6 @@
 		<div class="related">
 			<h2>related</h2>
 			@foreach($related as $key => $product)
-
 				<article>
 					<a href="/product/view/{{$product->id}}">
 						{!! Html::image('clothes_thumbnail/' . $product->image) !!}
@@ -61,6 +60,5 @@
 				</article>
 			@endforeach
 		</div>
-		
 	</section>
 @stop

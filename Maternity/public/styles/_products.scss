@@ -1,5 +1,5 @@
 .product-wrapper {
-	width: 500px;
+	width: 600px;
 	// background-color: lightgreen;
 	display: inline-block;
 
@@ -71,8 +71,8 @@
 .related {
 	float: right;
 	// background-color: lightblue;		
-	width: 440px;
-	overflow: auto;
+	width: 340px;
+	margin-top: 0;
 
 	h2 {
 		margin-top: 0;
@@ -80,12 +80,12 @@
 
 	article {
 		float: left;
-		width: 200px;
+		width: 100%;
 		margin-bottom: 40px;
 		position: relative;
 
-		&:nth-child(2n) {
-			margin-left: 40px;
+		a {
+			cursor: pointer;
 		}
 
 		img {
@@ -125,14 +125,10 @@
 	}
 
 	.related {
-		width: 240px;
+		width: 210px;
 
 		article {
 			width: 100%;
-
-			&:nth-child(2n) {
-				margin-left: 0px;
-			}
 		}
 	}
 }
@@ -155,7 +151,7 @@
 		article {
 			width: 225px;
 
-			&:nth-child(2n) {
+			&:nth-child(2n+1) {
 				margin-left: 20px;
 			}
 		}
