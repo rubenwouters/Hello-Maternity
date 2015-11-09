@@ -305,12 +305,17 @@ header {
 				}
 
 				&.search {
-					a {
+					a, input {
 						text-align: center;
 						display: block;
 						text-decoration: none;
 						color: $cTextSecondary;
 						font-weight: 700;
+						border: none;
+						text-align: center;
+						width: 100%;
+						font-size: .9em;
+						padding: 0;
 
 						&:hover {
 							text-decoration: underline;
