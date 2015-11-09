@@ -5,6 +5,18 @@
 	padding: 5px 8px;
 	display: block;
 	font-weight: 500;
+	background-color: transparent !important;
+
+	&.close-view {
+		bottom: 70px;
+	}
+
+	&.related-view {
+		// background-color: red !important;
+		// height: 16px !important;
+		top: auto !important;
+		bottom: 10px
+	}
 
 	>* {
 		float: left;
@@ -23,7 +35,7 @@
 	}
 
 	&:hover {
-		background-color: black;
+		background-color: black !important;
 
 		span {
 			opacity: 1.0;

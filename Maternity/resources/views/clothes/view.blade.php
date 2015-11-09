@@ -19,6 +19,7 @@
 							<div style="background-color: {{$color->name}}"></div>
 						@endforeach
 					</div>
+					<a class="heart close-view" href="/heartbag/add/id"><span>add piece to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
 				</div>
 
 				{{-- CHECK IF IS IN BAG --}}
@@ -57,6 +58,7 @@
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
 						<div class="size">{{$product->size}}</div>
 					</a>
+					<a class="heart related-view" href="/heartbag/add/id"><span>add to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
 				</article>
 			@endforeach
 		</div>

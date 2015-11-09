@@ -15,7 +15,7 @@
 			
 			@foreach($products as $product)
 				<article>
-					<a href="/product/view/{{$product->id}}">
+					<a class="test" href="/product/view/{{$product->id}}">
 						{!! Html::image('clothes_thumbnail/' . $product->image) !!}
 						<h1> {{$product->brand}} </h1>
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
@@ -26,7 +26,7 @@
 							@endforeach
 						</div>
 					</a>
-					<a class="heart" href="/heartbag"><span>Add piece to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
+					<a class="heart" href="/heartbag/add/id"><span>add piece to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
 				</article>
 			@endforeach
 

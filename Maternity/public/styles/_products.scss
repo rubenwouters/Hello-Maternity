@@ -160,15 +160,14 @@
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
-
 	.hairline.related {
 		display: inherit;
-		margin-top: -70px;
-		margin-bottom: 70px;
 	}
 
 	.related {
 		width: 100%;
+		clear: both;
+		display: block;
 
 		article {
 			width: 150px;
@@ -192,6 +191,12 @@
  			margin-top: 40px !important;
  		}
  	}
+
+ 	.hairline.related {
+		display: inherit;
+		margin-top: -80px;
+		margin-bottom: 70px;
+	}
 
  	.related {
  		width: 100%;
