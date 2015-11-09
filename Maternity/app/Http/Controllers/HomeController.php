@@ -14,7 +14,10 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::getProducts();
-        return view('home')->withProducts($products);
+        $arBag = $this->getBag();
+        $arHeartbag = $this->getHeartBag();
+
+        return view('home')->withProducts($products)->withBag($arBag)->withWishlist($arHeartbag);
     }
 
     public function productInfo($id){
@@ -22,16 +25,38 @@ class HomeController extends Controller
         $product = Product::find($id);
         $user = User::find($product->FK_user);
         $related = Product::getRelated($id);
-        $arBag = [];
-
-        foreach (Auth::user()->bags as $key => $value) {
-            $arBag[$key] = $value->productId;
-        }
+        $arBag = $this->getBag();
+        $arHeartbag = $this->getHeartBag();
 
         return view('clothes.view')
                     ->withProduct($product)
                     ->withUser($user)
                     ->withBag($arBag)
+                    ->withWishlist($arHeartbag)
                     ->withRelated($related);
+    }
+
+    public function getHeartBag(){
+        $arHeartBag = [];
+
+        if(Auth::check()){
+            foreach (Auth::user()->bags->where('inBag', 0) as $key => $value) {
+                $arHeartBag[$key] = $value->productId;
+            }
+        }
+
+        return $arHeartBag;
+    }
+
+    public function getBag(){
+        $arBag = [];
+
+        if(Auth::check()){
+            foreach (Auth::user()->bags->where('inBag', 1) as $key => $value) {
+                $arBag[$key] = $value->productId;
+            }
+        }
+
+        return $arBag;
     }
 }

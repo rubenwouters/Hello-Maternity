@@ -19,7 +19,17 @@
 							<div style="background-color: {{$color->name}}"></div>
 						@endforeach
 					</div>
-					<a class="heart close-view" href="/heartbag/add/id"><span>add piece to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
+
+
+					@if( in_array($product->id, $wishlist) )
+						<a class="heart close-view" href="/heartbag/remove/{{$product->id}}"><span>remove from heartbag </span><img src="/img/heart.svg"></a>
+					@elseif( in_array($product->id, $bag))
+						<a class="heart close-view"><span>Already in your bag</span><img src="/img/heart_gray.svg"></a>
+					@else
+						<a class="heart close-view" href="/heartbag/add/{{$product->id}}"><span>add piece to heartbag </span><img src="/img/heart_gray.svg"></a>
+					@endif
+
+					
 				</div>
 
 				{{-- CHECK IF IS IN BAG --}}
@@ -58,7 +68,13 @@
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
 						<div class="size">{{$product->size}}</div>
 					</a>
-					<a class="heart related-view" href="/heartbag/add/id"><span>add to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
+					@if( in_array($product->id, $wishlist) )
+						<a class="heart related-view" href="/heartbag/remove/{{$product->id}}"><span>remove from heartbag </span><img src="/img/heart.svg"></a>
+					@elseif( in_array($product->id, $bag))
+						<a class="heart related-view"><span>Already in your bag</span><img src="/img/heart_gray.svg"></a>
+					@else
+						<a class="heart related-view" href="/heartbag/add/{{$product->id}}"><span>add piece to heartbag </span><img src="/img/heart_gray.svg"></a>
+					@endif
 				</article>
 			@endforeach
 		</div>

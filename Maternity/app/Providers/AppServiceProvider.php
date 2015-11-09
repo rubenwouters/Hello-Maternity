@@ -23,16 +23,19 @@ class AppServiceProvider extends ServiceProvider
             $minPrice = Product::orderBy('price', 'ASC')->first()->price;
             $colors = Color::all();
             $types = Type::all();
+            $heartBag = User::getHeartBag();
 
             if(Auth::check())  {
-                $view->with('bagContent', Auth::user()->bags)
+                $view->with('bagContent', Auth::user()->bags->where('inBag', 1))
                         ->with('colors', $colors)
                         ->with('types', $types)
                         ->with('maxPrice', $maxPrice)
-                        ->with('minPrice', $minPrice);
+                        ->with('minPrice', $minPrice)
+                        ->with('heartBag', $heartBag);
             }
             else{
                 $view->with('bagContent', 0)
+                        ->with('heartBag', 0)
                         ->with('minPrice', $minPrice)
                         ->with('maxPrice', $maxPrice)
                         ->with('colors', $colors)
