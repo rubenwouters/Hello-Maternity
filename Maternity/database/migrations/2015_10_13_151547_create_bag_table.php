@@ -11,6 +11,7 @@ class CreateBagTable extends Migration
         Schema::create('bags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('productId');
+            $table->integer('inBag');
         });
     }
 

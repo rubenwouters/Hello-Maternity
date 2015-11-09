@@ -19,6 +19,10 @@ class Product extends Model
 		return $this->belongsTo('App\Type', 'FK_type');
 	}
 
+	public function bags(){
+    	return $this->belongsToMany('App\Bag', 'bags_products', 'FK_product', 'FK_bag');
+    }
+
 
 	// DB INTERACTION 
 	public static function getProducts(){

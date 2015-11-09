@@ -28,6 +28,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/bag/add/{id}', 'BagController@add');
 	Route::get('/bag/remove/{id}', 'BagController@remove');
 	Route::get('/bag/checkout', 'BagController@checkout');
+
+	// HEART BAG
+	Route::get('/heartbag', 'HeartBagController@index');
+	Route::get('/heartbag/add/{id}', 'HeartBagController@add');
+	Route::get('/heartbag/remove/{id}', 'HeartBagController@delete');
+	Route::get('/heartbag/tobag/{id}', 'HeartBagController@toBag');
 });
 
 // LOGIN

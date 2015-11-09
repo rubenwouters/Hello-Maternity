@@ -13,4 +13,9 @@ class Bag extends Model
     public function users(){
     	return $this->belongsToMany('App\User', 'bags_users', 'FK_bag', 'FK_user');
     }
+
+    public function products(){
+    	return $this->belongsToMany('App\Product', 'bags_products', 'FK_bag', 'FK_product');
+    }
+
 }
