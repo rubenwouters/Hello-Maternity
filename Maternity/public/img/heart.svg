@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="13px" viewBox="0 0 15 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.1 (15681) - http://www.bohemiancoding.com/sketch -->
+    <title>Heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-888.000000, -79.000000)" fill="#F3717F">
+            <path d="M902.691188,82.8838798 C902.691188,80.7388372 900.952263,79 898.80722,79 C897.406547,79 896.183319,79.7438732 895.499956,80.8555672 C894.816681,79.7438732 893.592927,79 892.192283,79 C890.047241,79 888.308812,80.7388372 888.308812,82.8838798 C888.308812,84.051735 888.826318,85.0965552 889.64194,85.8080569 L895.145534,91.3118837 C895.239525,91.4058749 895.366997,91.4586793 895.499956,91.4586793 C895.632916,91.4586793 895.760388,91.4058749 895.854379,91.3118837 L901.357972,85.8080569 C902.173623,85.0965552 902.691188,84.051735 902.691188,82.8838798 L902.691188,82.8838798 Z" id="Heart" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

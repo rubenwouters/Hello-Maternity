@@ -21,7 +21,7 @@
 		<![endif]-->
 		
 		<header>
-			<div class="search-clothes active"> <!-- active -->
+			<div class="search-clothes"> <!-- active -->
 				<a id="search">search clothes</a>
 				{!! Form::open(array('action' => array('SearchController@search'), 'class' => 'search-fields')) !!}
 					
@@ -96,7 +96,7 @@
 						<span class="bolder">Welcome {{ Auth::user()->name}}</span> <a href="/dashboard">dashboard</a> | <a href="/auth/logout">logout</a>
 					</p>
 					<p>
-						<a href=""><img src="/img/heart.svg" class="heart">(2)</a> | <a href="/bag"><span class="bolder">bag</span> ({{ count($bagContent)}}) </a>
+						<a href=""><img src="/img/heart.svg" class="heartbag">(2)</a> | <a href="/bag"><span class="bolder">bag</span> ({{ count($bagContent)}}) </a>
 					</p>
 				@else
 					<p>

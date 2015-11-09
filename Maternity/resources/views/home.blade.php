@@ -26,6 +26,7 @@
 							@endforeach
 						</div>
 					</a>
+					<a class="heart" href="/heartbag"><span>Add piece to heartbag {{-- patent pending :p --}}</span><img src="/img/heart.svg"></a>
 				</article>
 			@endforeach
 
