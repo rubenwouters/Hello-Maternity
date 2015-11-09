@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="13px" viewBox="0 0 15 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.1 (15681) - http://www.bohemiancoding.com/sketch -->
+    <title>Heart Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-865.000000, -79.000000)" fill="#C3C3C3">
+            <path d="M879.382376,82.8838798 C879.382376,80.7388372 877.643451,79 875.498408,79 C874.097735,79 872.874507,79.7438732 872.191144,80.8555672 C871.507869,79.7438732 870.284115,79 868.883471,79 C866.738429,79 865,80.7388372 865,82.8838798 C865,84.051735 865.517506,85.0965552 866.333128,85.8080569 L871.836721,91.3118837 C871.930712,91.4058749 872.058184,91.4586793 872.191144,91.4586793 C872.324104,91.4586793 872.451575,91.4058749 872.545567,91.3118837 L878.04916,85.8080569 C878.864811,85.0965552 879.382376,84.051735 879.382376,82.8838798 L879.382376,82.8838798 Z" id="Heart-Copy" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
