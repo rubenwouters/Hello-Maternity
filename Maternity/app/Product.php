@@ -62,10 +62,17 @@ class Product extends Model
 	}
 
 	public static function search($type, $size, $maxPrice, $minPrice, $colors){
-	
+			
+
+		if($colors == null){
+			$colors = Color::all();
+			foreach ($colors as $key => $color) {
+				$colors[$key] = $color->id;
+			}
+		}
+
 		return Product::where('size', $size)
 							->where('FK_type', $type)
-							->where('id', '!=', Auth::user()->id)
 							->where('price', '>=', $minPrice)
                         	->where('price', '<=', $maxPrice)
 							->whereHas('colors', function($query) use ($colors) {

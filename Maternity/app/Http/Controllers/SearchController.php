@@ -17,7 +17,6 @@ class SearchController extends Controller
             'size' => 'required',
             'maxPrice' => 'required|integer',
             'minPrice' => 'required|integer',
-            'colors' => 'required',
         ]);
 
          if ($validator->fails()) {
