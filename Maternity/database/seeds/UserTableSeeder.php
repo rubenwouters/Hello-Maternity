@@ -11,13 +11,15 @@ class UserTableSeeder extends Seeder
 				'name' => 'Ruben', 
 				'email' => 'ruben@test.be',
 				'password' => bcrypt('tester'),
-				'location' => 'Antwerp'
+				'location' => 'Antwerp',
+				'picture' => '1445340048.png'
 			],
 			[
 				'name' => 'Dries',
 				'email' => 'dries@test.com',
 				'password' => bcrypt('tester'),
-				'location' => 'Antwerp'
+				'location' => 'Antwerp',
+				'picture' => '1445340048.png'
 			]
 		];
 

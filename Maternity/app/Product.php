@@ -79,4 +79,10 @@ class Product extends Model
 						    	$query->whereIn('id', $colors);
 							})->get();
 	}
+
+	public static function searchByColor($id){
+		return Product::whereHas('colors', function($query) use ($id) {
+						    	$query->where('id', $id);
+							})->get();
+	}
 }

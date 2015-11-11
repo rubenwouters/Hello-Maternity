@@ -34,4 +34,10 @@ class SearchController extends Controller
 
         return view('search.results')->withResults($result);
     }
+
+    public function searchByColor($id){
+
+        $result = Product::searchByColor($id);
+        return view('search.results')->withResults($result);
+    }
 }

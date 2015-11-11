@@ -15,7 +15,7 @@
 						<div class="size">{{$product->size}}</div>
 						<div class="colors">
 							@foreach($product->colors as $color)
-								<div style="background-color: {{$color->name}}"></div>
+								<a href="/search/color/{{$color->id}}"><div style="background-color: {{$color->name}}"></div></a>
 							@endforeach
 						</div>
 					</a>
