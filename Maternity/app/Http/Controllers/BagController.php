@@ -41,7 +41,7 @@ class BagController extends Controller
         $bag->users()->attach(Auth::user()->id);
         $bag->products()->attach($id);
 
-        if(Auth::user()->bags->where('productId', $id)->where('inBag', 0)->first()->exists()){
+        if( count(Auth::user()->bags->where('productId', $id)->where('inBag', 0)) != 0 && Auth::user()->bags->where('productId', $id)->where('inBag', 0)->first()->exists()){
             return redirect('heartbag/remove/' . $id);
         }
     
@@ -62,14 +62,15 @@ class BagController extends Controller
 
     public function checkout(){
 
-        foreach(Auth::user()->bags as $bag){
+        foreach(Auth::user()->bags->where('inBag', 1) as $bag){
 
             $product = Product::find($bag->productId);
             $product->paid = 1;
             $product->save();
         }
 
-        Auth::user()->bags()->detach();
+        $bagNr = Bag::where('productId', $product->id)->first();
+        Auth::user()->bags()->detach($bagNr->id);
         
         return redirect()->action('BagController@index');
     }
