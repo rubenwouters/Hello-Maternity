@@ -2,10 +2,11 @@
 	position: absolute;
 	right: 10px;
 	bottom: 55px;
-	padding: 5px 8px;
+	// padding: 5px 8px;
 	display: block;
 	font-weight: 500;
 	background-color: transparent !important;
+	// background-color: lightblue;
 
 	&.close-view {
 		bottom: 70px;
@@ -25,17 +26,20 @@
 
 	img {
 		width: 20px !important;
+		background-color: white;
+		padding: 10px 10px;
 	}
 	
 	span {
-		padding: 1px 4px 0 0;
+		padding: 10px 10px 0;
+		font-size: 1em !important;
 		color: white;
 		opacity: 0.0;
 		transition: all .2s;
 	}
 
 	&:hover {
-		background-color: black !important;
+		background-color: $cLink !important;
 
 		span {
 			opacity: 1.0;

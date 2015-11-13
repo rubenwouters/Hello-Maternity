@@ -1,8 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-	<section class="cover-slider pic-1">
-		<div>
+	<section class="cover-slider">
+		<div class="slider img1 show"></div>
+		<div class="slider img2"></div>
+		<div class="slider img3"></div>
+		<div class="slider img4"></div>
+		<div class="slider img5"></div>
+		<div class="slider img6"></div>
+		<div class="slider img7"></div>
+		<div class="nav">
 			<p>Inspiration board</p>
 			<a class="arrow left">{!! Html::image('img/arrow.svg', 'arrow left') !!}</a>
 			<a class="arrow right">{!! Html::image('img/arrow.svg', 'arrow right') !!}</a>

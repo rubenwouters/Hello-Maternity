@@ -1,35 +1,33 @@
 (function(){
-	console.log('app.js');
-
-	console.log('.cover-slider');
-	// $('.cover-slider').addClass('second-image');
-
+	// console.log('app.js loaded');
 
 	/* 
 	 * Cover Slider 
 	 */
 
-	var prefixClass = 'pic-';
+	var prefixClass = 'img';
 	var maxIndex = 7;
 	var currentIndex = 1;
 
 	$('.cover-slider .left').click(function(){
-		console.log('clicked left, new index:', currentIndex - 1);
+		// console.log('clicked left, previous index: ' + currentIndex);
 		if (currentIndex <= 1) return;
 
-		var currentClass = 'pic-' + currentIndex;
+		var currentClass = prefixClass + currentIndex;
 		currentIndex--;
-		var newClass = 'pic-' + currentIndex;
-		$('.cover-slider').removeClass(currentClass).addClass(newClass);
+		var newClass = prefixClass + currentIndex;
+		$('.cover-slider .' + newClass).addClass('show');
+		$('.cover-slider .' + currentClass).removeClass('show');
 	});
 
 	$('.cover-slider .right').click(function(){
-		console.log('clicked right, new index:', currentIndex + 1);
+		// console.log('clicked right, previous index: ' + currentIndex);
 		if (currentIndex >= maxIndex) return;
 
-		var currentClass = 'pic-' + currentIndex;
+		var currentClass = prefixClass + currentIndex;
 		currentIndex++;
-		var newClass = 'pic-' + currentIndex;
-		$('.cover-slider').removeClass(currentClass).addClass(newClass);
+		var newClass = prefixClass + currentIndex;
+		$('.cover-slider .' + newClass).addClass('show');
+		$('.cover-slider .' + currentClass).removeClass('show');
 	});
 })();

@@ -1,5 +1,5 @@
 (function(){
-	console.log('search.js');
+	// console.log('search.js loaded');
 
 	var searchBtn = $('#search');
 	var searchbox = $('.search-clothes');

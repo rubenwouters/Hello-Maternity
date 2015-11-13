@@ -1,22 +1,39 @@
 .cover-slider {
 	width: 100%;
+	// background-color: orange;
 	height: 400px;
+	position: relative;
 
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: cover;
+	.slider {
+		z-index: 1;
+		opacity: 0.0;
+		position: absolute;
+		// background-color: red;
+		top: 0; right: 0; bottom: 0; left: 0;
+		display: block;
 
-	transition: background-image .5s ease-in-out;
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: cover;
 
-	&.pic-1 { background-image: url('../img/slider/cover1.jpg'); }
-	&.pic-2 { background-image: url('../img/slider/cover2.jpg'); }
-	&.pic-3 { background-image: url('../img/slider/cover3.jpg'); }
-	&.pic-4 { background-image: url('../img/slider/cover4.jpg'); }
-	&.pic-5 { background-image: url('../img/slider/cover5.jpg'); }
-	&.pic-6 { background-image: url('../img/slider/cover6.jpg'); }
-	&.pic-7 { background-image: url('../img/slider/cover7.jpg'); }
+		transition: opacity 0.5s ease-in-out;
 
-	> div {
+		&.show {
+			opacity: 1.0;
+		}
+
+		&.img1 { background-image: url('../img/slider/cover1.jpg'); }
+		&.img2 { background-image: url('../img/slider/cover2.jpg'); }
+		&.img3 { background-image: url('../img/slider/cover3.jpg'); }
+		&.img4 { background-image: url('../img/slider/cover4.jpg'); }
+		&.img5 { background-image: url('../img/slider/cover5.jpg'); }
+		&.img6 { background-image: url('../img/slider/cover6.jpg'); }
+		&.img7 { background-image: url('../img/slider/cover7.jpg'); }
+	}
+
+	.nav {
+		z-index: 2;
+		position: relative;
 		width: 980px;
 		margin: 0 auto;
 
@@ -35,6 +52,19 @@
 			height: 45px;
 			background-color: $cVeryLightTransparant;
 			margin-top: 170px;
+			display: block;
+
+			&.left {
+				float: left;
+			}
+
+			&.right {
+				float: right;
+				
+				img {
+					transform: rotate(180deg);
+				}
+			}
 
 			img {
 				margin: 0 auto;
@@ -43,25 +73,13 @@
 				margin-top: 7px;
 			}
 		}
-
-		.arrow.left {
-			float: left;
-		}
-
-		.arrow.right {
-			float: right;
-			
-			img {
-				transform: rotate(180deg);
-			}
-		}
 	}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
 	.cover-slider {
-		> div {
+		.nav {
 			width: 760px;
 		}
 	}
@@ -70,7 +88,7 @@
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
 	.cover-slider {
-		> div {
+		.nav {
 			width: 470px;
 		}
 	}
@@ -80,7 +98,7 @@
 @media only screen and (max-width : 480px) {
 	.cover-slider {
 		background-color: red;
-		> div {
+		.nav {
 			width: 310px;
 		}
 	}
@@ -89,7 +107,7 @@
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
     .cover-slider {
-    	> div {
+    	.nav {
     		width: 90%;
     	}
     }
