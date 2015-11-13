@@ -14,8 +14,8 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::getProducts();
-        $arBag = $this->getBag();
-        $arHeartbag = $this->getHeartBag();
+        $arBag = self::getBag();
+        $arHeartbag = self::getHeartBag();
 
         return view('home')->withProducts($products)->withBag($arBag)->withWishlist($arHeartbag);
     }
@@ -25,8 +25,8 @@ class HomeController extends Controller
         $product = Product::find($id);
         $user = User::find($product->FK_user);
         $related = Product::getRelated($id);
-        $arBag = $this->getBag();
-        $arHeartbag = $this->getHeartBag();
+        $arBag = self::getBag();
+        $arHeartbag = self::getHeartBag();
 
         return view('clothes.view')
                     ->withProduct($product)
@@ -36,7 +36,7 @@ class HomeController extends Controller
                     ->withRelated($related);
     }
 
-    public function getHeartBag(){
+    private function getHeartBag(){
         $arHeartBag = [];
 
         if(Auth::check()){
@@ -48,7 +48,7 @@ class HomeController extends Controller
         return $arHeartBag;
     }
 
-    public function getBag(){
+    private function getBag(){
         $arBag = [];
 
         if(Auth::check()){
