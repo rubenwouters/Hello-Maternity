@@ -5,7 +5,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/product/view/{id}', 'HomeController@productInfo');
 
 // SEARCH
-Route::post('/search', 'SearchController@search');
+Route::get('/search', ['as' => 'search', 'uses' => 'SearchController@search']);
 Route::get('/search/color/{id}', 'SearchController@searchByColor');
 
 // AUTHENTICATED USERS

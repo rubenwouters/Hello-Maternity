@@ -23,7 +23,7 @@
 		<header>
 			<div class="search-clothes"> <!-- active -->
 				<a id="search">search clothes</a>
-				{!! Form::open(array('action' => array('SearchController@search'), 'class' => 'search-fields')) !!}
+				{!! Form::open(array('method' => 'get', 'action' => array('SearchController@search'), 'class' => 'search-fields')) !!}
 					
 					<div class="clothes">
 						<label>select the type of clothing you'd like to search for</label>
