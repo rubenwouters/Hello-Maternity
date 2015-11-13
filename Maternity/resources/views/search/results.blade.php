@@ -19,6 +19,9 @@
 							@endforeach
 						</div>
 					</a>
+					<div class="product-nav">
+						<a href="/bag/add/{{ $product->id }}" class="rect-link">put in bag</a>
+					</div>
 				</article>
 			@endforeach
 
