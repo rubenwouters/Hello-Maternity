@@ -20,7 +20,9 @@
 						</div>
 					</a>
 					<div class="product-nav">
-						<a href="/bag/add/{{ $product->id }}" class="rect-link">put in bag</a>
+						@if( !in_array($product->id, $bag) )
+							<a href="/bag/add/{{ $product->id }}" class="rect-link">put in bag</a>
+						@endif
 					</div>
 				</article>
 			@endforeach

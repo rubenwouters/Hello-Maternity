@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Product;
+use Auth;
 use Validator;
 
 class SearchController extends Controller
@@ -32,12 +33,26 @@ class SearchController extends Controller
 
         $result = Product::search($type,$size,$maxPrice,$minPrice,$colors);
 
-        return view('search.results')->withResults($result);
+        $arBag = self::getBag();
+
+        return view('search.results')->withResults($result)->withBag($arBag);
     }
 
     public function searchByColor($id){
 
         $result = Product::searchByColor($id);
         return view('search.results')->withResults($result);
+    }
+
+    private function getBag(){
+        $arBag = [];
+
+        if(Auth::check()){
+            foreach (Auth::user()->bags->where('inBag', 1) as $key => $value) {
+                $arBag[$key] = $value->productId;
+            }
+        }
+
+        return $arBag;
     }
 }
