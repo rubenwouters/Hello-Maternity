@@ -64,16 +64,18 @@ class BagController extends Controller
     }
 
     public function checkout(){
-
+        
         foreach(Auth::user()->bags->where('inBag', 1) as $bag){
 
             $product = Product::find($bag->productId);
             $product->paid = 1;
             $product->save();
+
+            $bagNr = Bag::where('productId', $product->id)->first();
+            Auth::user()->bags()->detach($bagNr->id);
         }
 
-        $bagNr = Bag::where('productId', $product->id)->first();
-        Auth::user()->bags()->detach($bagNr->id);
+        
         
         return redirect()->action('BagController@index');
     }
