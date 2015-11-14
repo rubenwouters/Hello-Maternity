@@ -14,8 +14,7 @@ class SearchController extends Controller
     public function search(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'clothes' => 'required',
-            'size' => 'required',
+            
             'maxPrice' => 'required|integer',
             'minPrice' => 'required|integer',
         ]);

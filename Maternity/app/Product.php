@@ -62,13 +62,39 @@ class Product extends Model
 	}
 
 	public static function search($type, $size, $maxPrice, $minPrice, $colors){
-			
-
+		
 		if($colors == null){
 			$colors = Color::all();
 			foreach ($colors as $key => $color) {
 				$colors[$key] = $color->id;
 			}
+		}
+
+		if($colors != null && $type == null && $size == null){
+			return Product::where('price', '>=', $minPrice)
+                        	->where('price', '<=', $maxPrice)
+							->whereHas('colors', function($query) use ($colors) {
+						    	$query->whereIn('id', $colors);
+							})->get();
+
+		}
+
+		if($type == null){
+			return Product::where('size', $size)
+							->where('price', '>=', $minPrice)
+                        	->where('price', '<=', $maxPrice)
+							->whereHas('colors', function($query) use ($colors) {
+						    	$query->whereIn('id', $colors);
+							})->get();
+		}
+
+		if($size == null){
+			return Product::where('FK_type', $type)
+							->where('price', '>=', $minPrice)
+                        	->where('price', '<=', $maxPrice)
+							->whereHas('colors', function($query) use ($colors) {
+						    	$query->whereIn('id', $colors);
+							})->get();
 		}
 
 		return Product::where('size', $size)
