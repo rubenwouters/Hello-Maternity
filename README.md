@@ -9,3 +9,7 @@ Ruben Wouters: [Portfolio](http://rubenwouters.be)
 
 ### Project Link
 [Live version](https://hellomaternity-hellomaternity.c9users.io)
+
+
+### WeTransfer Link
+[assets](http://we.tl/N8yl4Laj5N)
