@@ -26,12 +26,9 @@ class ClothesController extends Controller
 
     public function saveClothes(Request $request){
 
-        $this->validate($request, [
-            'brand' => 'required',
-            'price' => 'required|integer',
-            'colors' => 'required',
-            'file' => 'required|image|max:10000'
-        ]);
+        $valid = Self::val($request, false);
+
+        if($valid->fails()) return redirect('dashboard/clothes/add')->withErrors($valid)->withInput($request->input());
 
         $product = new Product;
         $this->fillData($request, $product, false);
@@ -39,14 +36,34 @@ class ClothesController extends Controller
         return redirect()->action('DashboardController@index');
     }
 
-    public function updateClothes(Request $request, $id){
+    private function val($request, $update){
+        if($update){
+           $validator = Validator::make($request->all(), [
+                'brand' => 'required',
+                'price' => 'required|integer',
+                'colors' => 'required',
+                'file' => 'image|max:10000'
+            ]); 
 
-        $this->validate($request, [
+           return $validator;
+        }
+
+        $validator = Validator::make($request->all(), [
             'brand' => 'required',
             'price' => 'required|integer',
             'colors' => 'required',
-            'file' => 'image|max:10000'
+            'file' => 'required|image|max:10000'
         ]);
+
+        return $validator;
+    }
+
+    public function updateClothes(Request $request, $id){
+        
+        $valid = Self::val($request, true);
+        
+        if($valid->fails()) return redirect('dashboard/clothes/edit/' . $id)->withErrors($valid)->withInput($request->input());
+
 
         $product = Product::find($id);
         $product->colors()->detach();

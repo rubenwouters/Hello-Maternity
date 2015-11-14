@@ -50,7 +50,7 @@
 			<div class="colors">
 				@foreach($colors as $color)
 					<input 
-						@if( in_array($color->id, $selectedColors) ) checked="true" @endif 
+						@if( old('colors') != null && in_array($color->id, old('colors')) || in_array($color->id, $selectedColors) ) checked="true" @endif 
 						type="checkbox" 
 						value="{{$color->id}}" 
 						id="color" 

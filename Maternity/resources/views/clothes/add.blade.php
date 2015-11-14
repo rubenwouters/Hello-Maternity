@@ -19,7 +19,7 @@
 					<p>{!! Form::label('type', 'Type'); !!}</p>
 					<select name="type">
 						@foreach($types as $type)
-							<option name="type" value="{{$type->id}}">{{$type->name}}</option>
+							<option {{ (Input::old("type") == $type->id ? "selected":"") }} name="type" value="{{$type->id}}">{{$type->name}}</option>
 						@endforeach
 					</select>
 				</div>
@@ -42,8 +42,11 @@
 			</p>
 
 			<div class="colors">
-				@foreach($colors as $color)
-					<input type="checkbox" value="{{$color->id}}" id="color" name="colors[]" style="background-color: {{ $color->name }};">
+				@foreach($colors as $key => $color)
+
+					<input 
+					@if( old('colors') != null && in_array($color->id, old('colors'))) checked="true" @endif
+					type="checkbox" value="{{$color->id}}" id="color" name="colors[]" style="background-color: {{ $color->name }};">
 				@endforeach
 			</div>
 			<p class="error">{{ $errors->first('colors') }}</p>
