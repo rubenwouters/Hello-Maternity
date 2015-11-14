@@ -12,8 +12,7 @@
 
 		<title>Hello Maternity</title>
 
-		{{-- <link rel="stylesheet" type="text/css" href="css/style.min.css"> --}}
-		{!! Html::style('css/style.min.css') !!}
+		 <link rel="stylesheet" href="/css/style.min.css" type="text/css" />
 	</head>
 	<body>
 		<!--[if lte IE 8]>
@@ -23,8 +22,8 @@
 		<header>
 			<div class="search-clothes"> <!-- active -->
 				<a id="search">search clothes</a>
-				{!! Form::open(array('method' => 'get', 'action' => array('SearchController@search'), 'class' => 'search-fields')) !!}
-					
+				<!--{!! Form::open(array('method' => 'get', 'action' => array('SearchController@search'), 'class' => 'search-fields')) !!}-->
+				{!! Form::open( array('url' => '/search', 'method' => 'get', 'class' => 'search-fields')) !!}
 					<div class="clothes">
 						<label>select the type of clothing you'd like to search for</label>
 						<div>
@@ -87,7 +86,7 @@
 			</div>
 
 			{{-- LOGO --}}
-			<h1><a href="/">{!! Html::image('img/logo.svg', 'Hello Maternity') !!}</a></h1>
+			<h1><a href="/"><img src="/img/logo.svg" alt="Hello Maternity"></img></a></h1>
 			
 			{{-- LOGIN/REGISTER CONTROLS --}}
 			<div class="login">
@@ -117,9 +116,8 @@
 			back-end development <a href="http://rubenwouters.be/" target="_blank">Ruben Wouters</a>
 		</footer>
 		
-	
-		{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') !!}
-		{!! Html::script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js') !!}
-		{!! Html::script('js/app.js') !!}
+		<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="/js/app.js"></script>
 	</body>
 </html>

@@ -11,8 +11,8 @@
 		<div class="slider img7"></div>
 		<div class="nav">
 			<p>Inspiration board</p>
-			<a class="arrow left">{!! Html::image('img/arrow.svg', 'arrow left') !!}</a>
-			<a class="arrow right">{!! Html::image('img/arrow.svg', 'arrow right') !!}</a>
+			<a class="arrow left"> <img src="/img/arrow.svg" alt="arrow left"> </a>
+			<a class="arrow right"><img src="/img/arrow.svg" alt="arrow left"></a>
 		</div>
 	</section>
 
@@ -23,7 +23,7 @@
 			@foreach($products as $product)
 				<article>
 					<a class="test" href="/product/view/{{$product->id}}">
-						{!! Html::image('clothes_thumbnail/' . $product->image) !!}
+						<img src="/clothes_thumbnail/{{$product->image}}" alt="product picture">
 						<h1> {{$product->brand}} </h1>
 						<div class="price"><span>&euro;</span>{{$product->price}}</div>
 						<div class="size">{{$product->size}}</div>
