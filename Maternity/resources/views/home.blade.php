@@ -47,7 +47,7 @@
 						@if( !in_array($product->id, $bag) )
 							<a href="/bag/add/{{ $product->id }}" class="rect-link">put in bag</a>
 						@else 
-							<a class="rect-link">already in bag</a>
+							<a class="rect-link dark lighter-hover">already in bag</a>
 						@endif
 					</div>
 				</article>

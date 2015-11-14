@@ -37,6 +37,12 @@
 		div {
 			display: block;
 			margin: 0 0 0 20px;
+			height: 155px;
+
+			.rect-link {
+				// bottom: 40px;
+				position: absolute;
+			}
 		}
 	}
 }
@@ -51,6 +57,11 @@
 		div {
 			display: block;
 			margin: 20px 0 0 0;
+			
+			.rect-link {
+				position: relative;
+				margin-top: 10px;
+			}
 		}
 	}
 }
