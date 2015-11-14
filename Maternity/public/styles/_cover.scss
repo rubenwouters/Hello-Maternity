@@ -1,6 +1,5 @@
 .cover-slider {
 	width: 100%;
-	// background-color: orange;
 	height: 400px;
 	position: relative;
 
@@ -8,7 +7,6 @@
 		z-index: 1;
 		opacity: 0.0;
 		position: absolute;
-		// background-color: red;
 		top: 0; right: 0; bottom: 0; left: 0;
 		display: block;
 
@@ -97,7 +95,6 @@
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
 	.cover-slider {
-		background-color: red;
 		.nav {
 			width: 310px;
 		}

@@ -30,6 +30,24 @@
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
 	.profile {
+		// background-color: lightblue;
+		img {
+			width: 50%;
+		}
+		div {
+			display: block;
+			margin: 0 0 0 20px;
+		}
+	}
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+	.profile {
+		// background-color: lightgreen;
+		img {
+			width: 100%;
+		}
 		div {
 			display: block;
 			margin: 20px 0 0 0;

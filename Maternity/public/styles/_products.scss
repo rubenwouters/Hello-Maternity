@@ -165,30 +165,29 @@
 	}
 
 	.related {
-		width: 100%;
-		clear: both;
-		display: block;
+ 		width: 100%;
 
-		article {
-			width: 150px;
+ 		article {
+ 			width: 100%;
 
-			&:nth-child(2n) {
-				margin-left: 10px;
-			}
-		}
-	}
+ 			&:nth-child(2n), &:nth-child(2n+1) {
+ 				margin-left: 0;
+ 			}
+ 		}
+ 	}
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
  	.product-wrapper {
  		.info-wrapper {
- 			width: 100%;
+ 			// width: 100%;
  		}
 
- 		.mega {
- 			float: left !important;
- 			margin-top: 40px !important;
+ 		.product .mega {
+	 		padding: 5px;
+ 			font-size: 1.4em !important;
+ 			// background-color: lightgreen;
  		}
  	}
 
@@ -198,15 +197,15 @@
 		margin-bottom: 70px;
 	}
 
- 	.related {
- 		width: 100%;
+ 	// .related {
+ 	// 	width: 100%;
 
- 		article {
- 			width: 100%;
+ 	// 	article {
+ 	// 		width: 100%;
 
- 			&:nth-child(2n) {
- 				margin-left: 0;
- 			}
- 		}
- 	}
+ 	// 		&:nth-child(2n) {
+ 	// 			margin-left: 0;
+ 	// 		}
+ 	// 	}
+ 	// }
 }
