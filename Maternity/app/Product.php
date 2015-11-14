@@ -76,7 +76,6 @@ class Product extends Model
 							->whereHas('colors', function($query) use ($colors) {
 						    	$query->whereIn('id', $colors);
 							})->get();
-
 		}
 
 		if($type == null){

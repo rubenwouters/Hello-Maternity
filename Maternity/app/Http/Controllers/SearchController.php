@@ -38,9 +38,9 @@ class SearchController extends Controller
     }
 
     public function searchByColor($id){
-
+        $arBag = self::getBag();
         $result = Product::searchByColor($id);
-        return view('search.results')->withResults($result);
+        return view('search.results')->withResults($result)->withBag($arBag);
     }
 
     private function getBag(){
