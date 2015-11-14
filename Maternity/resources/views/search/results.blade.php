@@ -47,6 +47,8 @@
 					{{ $errors->first('maxPrice') }}<br>
 					{{ $errors->first('minPrice') }}
 				</p>
+				
+				No clothes found matching these filters.
 
 			@endif
 		</div>
