@@ -33,6 +33,9 @@ class BagController extends Controller
 
     public function add($id){
 
+        $bag = Auth::user()->bags->where('productId', $id)->where('inBag', 1);
+        if( count($bag) > 0) return redirect()->action('BagController@index');
+
         $bag = new Bag;
         $bag->productId = $id;
         $bag->inBag = 1;
