@@ -39,9 +39,12 @@ class SearchController extends Controller
     }
 
     public function searchByColor($id){
+        
+        $arHeartbag = self::getHeartBag();
         $arBag = self::getBag();
+
         $result = Product::searchByColor($id);
-        return view('search.results')->withResults($result)->withBag($arBag);
+        return view('search.results')->withResults($result)->withBag($arBag)->withHeartbag($arHeartbag);
     }
 
     private function getHeartBag(){
