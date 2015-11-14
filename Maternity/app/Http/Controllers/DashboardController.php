@@ -75,7 +75,7 @@ class DashboardController extends Controller
             $image = $request->file('profilePic');
             $filename  = time() . '.' . $image->getClientOriginalExtension();
             $path = public_path('profile_pictures/' . $filename);
-            Image::make($image->getRealPath())->fit(200, 200)->save($path);
+            Image::make($image->getRealPath())->fit(200, 200, null, 'top')->save($path);
 
             $user->picture = $filename;
             $user->save();
