@@ -19,11 +19,15 @@
 							@endforeach
 						</div>
 					</a>
-					@if( in_array($product->id, $heartbag))
-						<a class="heart close-view with-links"><span>Already in your heartbag</span><img src="/img/heart.svg"></a>
+
+					@if( in_array($product->id, $heartbag) )
+						<a class="heart close-view with-links"><span>Already in your heartbag </span><img src="/img/heart.svg"></a>
+					@elseif( in_array($product->id, $bag))
+						<a class="heart close-view with-links"><span>Already in your bag</span><img src="/img/heart_gray.svg"></a>
 					@else
 						<a class="heart close-view with-links" href="/heartbag/add/{{$product->id}}"><span>add piece to heartbag </span><img src="/img/heart_gray.svg"></a>
 					@endif
+
 					<div class="product-nav">
 						@if( !in_array($product->id, $bag) )
 							<a href="/bag/add/{{ $product->id }}" class="rect-link">put in bag</a>
