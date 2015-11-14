@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Color;
 use App\Type;
 use App\Product;
+use App\Bag;
+use App\User;
 use Auth;
 use Image;
 use Input;
@@ -126,9 +128,12 @@ class ClothesController extends Controller
     }
 
     public function delete($id){
+        
+        Self::detachFromBags($id);
 
         $product = Product::find($id);
         $product->delete();
+
         
         return redirect()->action('DashboardController@index');
     }
@@ -139,5 +144,17 @@ class ClothesController extends Controller
         $sold->delete();
 
         return redirect()->action('DashboardController@index');
+    }
+
+    private function detachFromBags($id){
+
+        $users = User::all();
+
+        foreach ($users as $key => $user) {
+            foreach ($user->bags->where('productId', $id) as $key => $value) {
+                $value->users()->detach();
+            }
+        }
+
     }
 }
