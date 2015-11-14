@@ -1,19 +1,4 @@
 (function(){
-	// console.log('app.js loaded');
-})();
-(function(){
-	// console.log('search.js loaded');
-
-	var searchBtn = $('#search');
-	var searchbox = $('.search-clothes');
-
-	searchBtn.click(function(){
-		console.log('button clicked');
-
-		searchbox.toggleClass('active');
-	});
-})();
-(function(){
 	// console.log('slider.js loaded');
 
 	var prefixClass = 'img';
